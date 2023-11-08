@@ -7,7 +7,8 @@
 
 NAME 	= 	my_hunter
 
-SRC 	= 	src/my_main.c
+SRC 	= 	src/my_main.c		\
+                src/game/game_view.c	\
 
 OBJ 	= 	$(SRC:.c=.o)
 

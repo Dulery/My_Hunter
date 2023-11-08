@@ -19,4 +19,6 @@
       #define sfCf sfTexture_createFromFile
       #define sfWc sfRenderWindow_create
 
+      void game_function(sfRenderWindow* window, sfEvent event);
+
 #endif
