@@ -10,6 +10,8 @@
 
 void game_function(sfRenderWindow* window, sfEvent event)
 {
+    sfVector2i mouse = sfMouse_getPosition(window);
+
     sfTexture *gamefield = sfTexture_createFromFile("content/game.png", NULL);
     sfSprite *gamefield_sprite = sfSprite_create();
     sfVector2f gamefield_scale = {1.3, 1.3};
@@ -20,10 +22,9 @@ void game_function(sfRenderWindow* window, sfEvent event)
     sfTexture *zombie = sfTexture_createFromFile("content/zseul.png", NULL);
     sfSprite *zombie_sprite = sfSprite_create();
     sfVector2f zombie_scale = {2, 2};
-    int x = 0;
-    int y = 390;
+    float x = -500.0f;
+    int y = 500;
     sfVector2f zombie_pos = {x, y};
-    float zombie_speed = 0.5;
 
     sfSprite_setTexture(zombie_sprite, zombie, sfTrue);
     sfSprite_setScale(zombie_sprite, zombie_scale);
@@ -34,17 +35,18 @@ void game_function(sfRenderWindow* window, sfEvent event)
             if (event.type == sfEvtClosed) {
                 sfRenderWindow_close(window);
             }
-            if (event.type == sfEvtMouseButtonPressed) {
-                x = -500;
-                sfVector2f zombie_pos = {x, y};
-                sfSprite_setPosition(zombie_sprite, zombie_pos);
+            if (sfMouse_isButtonPressed(sfMouseLeft)) {
+                sfVector2i mouse = sfMouse_getPosition(window);
+                sfFloatRect zombieBounds = sfSprite_getGlobalBounds(zombie_sprite);
+
+                if (sfFloatRect_contains(&zombieBounds, mouse.x, mouse.y)) {
+                    x = -150.0f;
+                    sfSprite_setPosition(zombie_sprite, (sfVector2f){x, (float)y});
+                }
             }
-            
         }
-        
-        x += zombie_speed;
-        sfVector2f zombie_pos = {x, y};
-        sfSprite_setPosition(zombie_sprite, zombie_pos);
+        x += 0.1f;
+        sfSprite_setPosition(zombie_sprite, (sfVector2f){x, (float)y});
 
         sfRenderWindow_clear(window, sfWhite);
         sfRenderWindow_drawSprite(window, gamefield_sprite, NULL);
