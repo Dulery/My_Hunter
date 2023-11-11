@@ -28,7 +28,7 @@ int main(void)
     sfEvent event;
 
     //Def sprites
-    sfTexture *texture = sfTexture_createFromFile("content/mainmenu.png", NULL);
+    sfTexture *texture = sfTexture_createFromFile("content/game.png", NULL);
     sfSprite *sprite = sfSprite_create();
 
     sfTexture *texture02 = sfTexture_createFromFile("content/startbutton.png", NULL);
@@ -38,7 +38,7 @@ int main(void)
     sfSprite *sprite_titre = sfSprite_create();
 
     //Taille sprite
-    sfVector2f scale = {1.25, 1.25};
+    sfVector2f scale = {1.3, 1.3};
     sfVector2f scale_button = {12, 12};
     sfVector2f scale_titre = {9, 9};
 
