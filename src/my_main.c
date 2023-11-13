@@ -9,14 +9,17 @@
 #include "../include/my.h"
 
 //Fonction click
-void if_click(sfRenderWindow* window, sfEvent event)
+void if_click(sfRenderWindow* window, sfEvent event, sfMusic* music)
 {
     sfVector2i mouse = sfMouse_getPosition(window);
 
     if (mouse.x >= 471 && mouse.x <= 807) {
         if (mouse.y >= 486 && mouse.y <= 581) {
-            if (event.type == sfEvtMouseButtonPressed)
+            if (event.type == sfEvtMouseButtonPressed) {
+                sfMusic_stop(music);
+                sfMusic_destroy(music);
                 game_function(window, event);
+            }
         }
     }
 }
@@ -27,6 +30,16 @@ int main(void)
     sfRenderWindow* window;
     sfEvent event;
 
+    //Music
+    sfMusic* music;
+    music = sfMusic_createFromFile("content/mainsongluigi.ogg");
+    if (!music)
+    {
+        return EXIT_FAILURE;
+    }
+    sfMusic_setLoop(music, true);
+    sfMusic_play(music);
+            
     //Def sprites
     sfTexture *texture = sfTexture_createFromFile("content/game.png", NULL);
     sfSprite *sprite = sfSprite_create();
@@ -75,7 +88,7 @@ int main(void)
         sfRenderWindow_drawSprite(window, button, NULL);
         sfRenderWindow_display(window);
 
-        if_click(window, event);
+        if_click(window, event, music);
     }
     return 0;
 }

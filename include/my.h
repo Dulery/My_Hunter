@@ -7,6 +7,9 @@
 
 #ifndef MY_H_
       #define MY_H_
+
+      #include <SFML/Audio.h>
+      #include <stdbool.h>
       #include <SFML/Graphics.h>
       #include <stdlib.h>
       #include <SFML/Window.h>

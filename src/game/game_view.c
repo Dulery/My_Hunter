@@ -32,10 +32,6 @@ void if_click_point(sfRenderWindow* window, sfEvent event, int* p, sfSprite* zom
     if (event.type == sfEvtMouseButtonPressed) {
         sfFloatRect zombieBounds = sfSprite_getGlobalBounds(zombie_sprite);
     }
-
-    if (*p == 10) {
-        sfRenderWindow_close(window);
-    }
 }
 
 void game_function(sfRenderWindow* window, sfEvent event)
@@ -43,12 +39,21 @@ void game_function(sfRenderWindow* window, sfEvent event)
     sfVector2i mouse = sfMouse_getPosition(window);
     int p = 0;
 
+    sfMusic* music;
+    music = sfMusic_createFromFile("content/playsong.ogg");
+    if (!music)
+    {
+        return EXIT_FAILURE;
+    }
+    sfMusic_setLoop(music, true);
+    sfMusic_play(music);
+    
     sfFont* font = sfFont_createFromFile("content/police.ttf");
 
     sfText* scoreText = sfText_create();
     sfText_setFont(scoreText, font);
     sfText_setCharacterSize(scoreText, 75);
-    sfText_setPosition(scoreText, (sfVector2f){10, 10});
+    sfText_setPosition(scoreText, (sfVector2f){950, 10});
     sfText_setFillColor(scoreText, sfWhite);
 
     sfTexture *gamefield = sfTexture_createFromFile("content/mainmenu.png", NULL);
@@ -81,6 +86,8 @@ void game_function(sfRenderWindow* window, sfEvent event)
                 sfVector2i mouse = sfMouse_getPosition(window);
                 sfFloatRect zombieBounds = sfSprite_getGlobalBounds(zombie_sprite);
                 if_click_point(window, event, &p, zombie_sprite);
+                sfMusic* sound;
+                sound = sfMusic_createFromFile("content/zombiesound.ogg");
 
                 if (sfFloatRect_contains(&zombieBounds, mouse.x, mouse.y)) {
                     p++;
@@ -88,6 +95,15 @@ void game_function(sfRenderWindow* window, sfEvent event)
                     sfSprite_setPosition(zombie_sprite, (sfVector2f){-150.0f, (float)y});
                     x = -150.0f;
                     sfSprite_setPosition(zombie_sprite, (sfVector2f){x, (float)y});
+
+                    sfMusic* sound;
+                    sound = sfMusic_createFromFile("content/zombiesound.ogg");
+                    if (!sound)
+                    {
+                        return EXIT_FAILURE;
+                    }
+                    sfMusic_setLoop(sound, false);
+                    sfMusic_play(sound);
                 }
             }
         }
@@ -100,7 +116,7 @@ void game_function(sfRenderWindow* window, sfEvent event)
         }
         sfSprite_setPosition(zombie_sprite, (sfVector2f){x, (float)y});
 
-        x += 0.3f;
+        x += 0.25f;
         sfSprite_setPosition(zombie_sprite, (sfVector2f){x, (float)y});
 
         char scoreString[10];
@@ -121,4 +137,5 @@ void game_function(sfRenderWindow* window, sfEvent event)
     sfTexture_destroy(zombie);
     sfTexture_destroy(zombie2);
     sfClock_destroy(clock);
+    sfMusic_destroy(music);
 }
