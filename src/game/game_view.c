@@ -53,7 +53,7 @@ void game_function(sfRenderWindow* window, sfEvent event)
     sfText* scoreText = sfText_create();
     sfText_setFont(scoreText, font);
     sfText_setCharacterSize(scoreText, 75);
-    sfText_setPosition(scoreText, (sfVector2f){950, 10});
+    sfText_setPosition(scoreText, (sfVector2f){915, 10});
     sfText_setFillColor(scoreText, sfWhite);
 
     sfTexture *gamefield = sfTexture_createFromFile("content/mainmenu.png", NULL);
@@ -76,7 +76,7 @@ void game_function(sfRenderWindow* window, sfEvent event)
     sfSprite_setPosition(zombie_sprite, zombie_pos);
 
     sfClock* clock = sfClock_create();
-
+    
     while (sfRenderWindow_isOpen(window)) {
         while (sfRenderWindow_pollEvent(window, &event)) {
             if (event.type == sfEvtClosed) {
@@ -86,24 +86,12 @@ void game_function(sfRenderWindow* window, sfEvent event)
                 sfVector2i mouse = sfMouse_getPosition(window);
                 sfFloatRect zombieBounds = sfSprite_getGlobalBounds(zombie_sprite);
                 if_click_point(window, event, &p, zombie_sprite);
-                sfMusic* sound;
-                sound = sfMusic_createFromFile("content/zombiesound.ogg");
-
                 if (sfFloatRect_contains(&zombieBounds, mouse.x, mouse.y)) {
                     p++;
                     y = rand() % 275 + 300;
                     sfSprite_setPosition(zombie_sprite, (sfVector2f){-150.0f, (float)y});
                     x = -150.0f;
                     sfSprite_setPosition(zombie_sprite, (sfVector2f){x, (float)y});
-
-                    sfMusic* sound;
-                    sound = sfMusic_createFromFile("content/zombiesound.ogg");
-                    if (!sound)
-                    {
-                        return EXIT_FAILURE;
-                    }
-                    sfMusic_setLoop(sound, false);
-                    sfMusic_play(sound);
                 }
             }
         }
@@ -116,7 +104,7 @@ void game_function(sfRenderWindow* window, sfEvent event)
         }
         sfSprite_setPosition(zombie_sprite, (sfVector2f){x, (float)y});
 
-        x += 0.25f;
+        x += 0.4f;
         sfSprite_setPosition(zombie_sprite, (sfVector2f){x, (float)y});
 
         char scoreString[10];
