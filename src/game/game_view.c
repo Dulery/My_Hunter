@@ -8,6 +8,14 @@
 #include <unistd.h>
 #include "../../include/my.h"
 
+void check_boundary(float* x, int* y)
+{
+    if ((*x) > 1280) {
+        (*y) = rand() % 275 + 300;
+        (*x) = -150.0f;
+    }
+}
+
 void anime_sprite(sfClock* clock, sfSprite* zombie_sprite, sfTexture* zombie, sfTexture* zombie2)
 {
     sfTime time = sfClock_getElapsedTime(clock);
@@ -106,6 +114,8 @@ void game_function(sfRenderWindow* window, sfEvent event)
 
         x += 0.4f;
         sfSprite_setPosition(zombie_sprite, (sfVector2f){x, (float)y});
+
+        check_boundary(&x, &y);
 
         char scoreString[10];
         sprintf(scoreString, "Score: %d", p);
