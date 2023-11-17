@@ -37,7 +37,7 @@ void if_click_point(sfRenderWindow* window, sfEvent event, int* p, sfSprite* zom
 {
     sfVector2i mouse = sfMouse_getPosition(window);
 
-    if (event.type == sfEvtMouseButtonPressed) {
+    if (event.type == sfEvtMouseButtonReleased) {
         sfFloatRect zombieBounds = sfSprite_getGlobalBounds(zombie_sprite);
     }
 }
