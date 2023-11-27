@@ -1,28 +1,46 @@
 ##
-## EPITECH PROJECT, 2023
+## EPITECH PROJECT, 2018
 ## Makefile
 ## File description:
-## oui
+## my make file
 ##
 
-NAME 	= 	my_hunter
+CC	=	gcc
 
-SRC 	= 	src/my_main.c		\
-                src/game/game_view.c	\
+SRC	=	main.c \
+		my_cursor.c \
+		my_draw_window.c \
+		my_bird.c \
+		my_gun.c \
+		my_create.c \
+		gun_hand.c \
+		heart.c \
+		my_score.c \
+		menu.c	\
+		pause.c
 
-OBJ 	= 	$(SRC:.c=.o)
+OBJ	=	$(SRC:.c=.o)
 
-CFLAGS 	= 	-Wall -Wextra
+NAME =	my_hunter
 
-CSFML 	= 	-lcsfml-graphics -lcsfml-system -lcsfml-audio -lcsfml-window
+FLAGS	=	-W \
+			-Wextra \
+			-Werror \
+			-Wall \
+			-lcsfml-graphics \
+			-lcsfml-audio \
+			-lcsfml-window \
+			-lcsfml-system \
 
-all: 	$(OBJ)
-	gcc -o $(NAME) $(OBJ) $(CFLAGS) $(CSFML)
+RM = rm -rf
+
+all:
+		$(CC) $(SRC) $(FLAGS) -o $(NAME)
 
 clean:
-	rm -f $(OBJ)
+		$(RM) $(OBJ)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:		clean
+		$(RM) $(NAME)
 
-re: fclean all
+re: 		fclean all
