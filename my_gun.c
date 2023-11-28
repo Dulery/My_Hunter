@@ -67,7 +67,7 @@ game_t my_gun(game_t game)
     }
     if (sfMouse_isButtonPressed(sfMouseLeft) && !game.g.compt) {
         my_gun_song(game);
-        game.g.compt = 10;
+        //game.g.compt = 10;
         for (int i = 0; i < game.i; i++) {
             game.h.compt += my_shoot(game.b[i], game.w);
             game.b[i].death = (my_shoot(game.b[i], \
@@ -76,6 +76,5 @@ game_t my_gun(game_t game)
     }
     game = player_heart(game);
     put_bird(game);
-    game = my_gun_hand(game);
     return (spawn_bird(game));
 }

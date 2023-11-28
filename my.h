@@ -15,8 +15,6 @@ game_t recreate_game(game_t game);
 
 game_t my_pause(game_t game);
 
-void put_gun(game_t game);
-
 void put_bird(game_t game);
 
 char *my_get_score(int nb);

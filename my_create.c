@@ -88,7 +88,7 @@ obj_heart_t create_heart(obj_heart_t heart)
     heart.text = sfTexture_createFromFile("resource/picture/heart.png", NULL);
     heart.txt = sfText_create();
     sfText_setFont(heart.txt, \
-        sfFont_createFromFile("resource/picture/sc.ttf"));
+        sfFont_createFromFile("resource/picture/sc.ttf"));    
     sfText_setColor(heart.txt, sfWhite);
     sfText_setCharacterSize(heart.txt, 30);
     heart.gun1 = sfMusic_createFromFile("resource/song/gun1.ogg");

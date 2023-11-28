@@ -13,7 +13,6 @@ SRC	=	main.c \
 		my_bird.c \
 		my_gun.c \
 		my_create.c \
-		gun_hand.c \
 		heart.c \
 		my_score.c \
 		menu.c	\
