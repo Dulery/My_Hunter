@@ -15,10 +15,9 @@
 #include <SFML/System/Types.h>
 
 #ifndef STRUCT_H_
-#define STRUCT_H_
+    #define STRUCT_H_
 
-typedef struct obj_bird_s
-{
+typedef struct obj_bird_s {
     sfClock *clock;
     sfTime time;
     float seconds;
@@ -31,8 +30,7 @@ typedef struct obj_bird_s
     sfIntRect rect;
 } obj_bird_t;
 
-typedef struct obj_gun_s
-{
+typedef struct obj_gun_s {
     sfClock *clock;
     sfTime time;
     float seconds;
@@ -46,8 +44,7 @@ typedef struct obj_gun_s
     sfIntRect rect;
 } obj_gun_t;
 
-typedef struct obj_heart_s
-{
+typedef struct obj_heart_s {
     int heart;
     int compt;
     sfIntRect rect;
@@ -59,8 +56,7 @@ typedef struct obj_heart_s
     sfMusic* gun2;
 } obj_heart_t;
 
-typedef struct obj_menu_s
-{
+typedef struct obj_menu_s {
     sfText *txt;
     char *score;
     sfTexture *text;
@@ -74,8 +70,7 @@ typedef struct obj_menu_s
 
 } obj_menu_t;
 
-typedef struct game_s
-{
+typedef struct game_s {
     obj_bird_t *b;
     obj_gun_t g;
     sfRenderWindow *w;
@@ -92,4 +87,4 @@ typedef struct game_s
     int game;
 } game_t;
 
-#endif /* STRUCT_H_ */
+#endif

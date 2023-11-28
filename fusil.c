@@ -27,10 +27,10 @@ obj_bird_t my_death_bird(obj_bird_t bird)
         bird.rect.top = 110;
         bird.position.y += 2;
         bird.position.x += 1;
-        bird.rect.left  = (c < 3 && c >= -5) ? 100 : bird.rect.left;
-        bird.rect.left  = (c < -5 && c >= -13) ? 180 : bird.rect.left;
-        bird.rect.left  = (c < -13 && c >= -21) ? 360 : bird.rect.left;
-        bird.rect.left  = (c < -21) ? 460 : bird.rect.left;
+        bird.rect.left = (c < 3 && c >= -5) ? 100 : bird.rect.left;
+        bird.rect.left = (c < -5 && c >= -13) ? 180 : bird.rect.left;
+        bird.rect.left = (c < -13 && c >= -21) ? 360 : bird.rect.left;
+        bird.rect.left = (c < -21) ? 460 : bird.rect.left;
         bird = (c == -29) ? recreate_bird(bird) : bird;
         bird.death = (bird.death == 3) ? bird.death : c - 1;
     }
@@ -50,8 +50,8 @@ int my_shoot(obj_bird_t bird, sfRenderWindow *window)
     int x = sfMouse_getPositionRenderWindow(window).x;
     int y = sfMouse_getPositionRenderWindow(window).y;
 
-    if ((bird.position).x + 100 > x && (bird.position).x < x && \
-    bird.position.y + 100 > y && bird.position.y < y  && bird.death == 3)
+    if ((bird.position).x + 100 > x && (bird.position).x < x &&
+    bird.position.y + 100 > y && bird.position.y < y && bird.death == 3)
         return (1);
     else
         return (0);
@@ -67,10 +67,9 @@ game_t my_gun(game_t game)
     }
     if (sfMouse_isButtonPressed(sfMouseLeft) && !game.g.compt) {
         my_gun_song(game);
-        //game.g.compt = 10;
         for (int i = 0; i < game.i; i++) {
             game.h.compt += my_shoot(game.b[i], game.w);
-            game.b[i].death = (my_shoot(game.b[i], \
+            game.b[i].death = (my_shoot(game.b[i],
             game.w)) ? 2 : game.b[i].death;
         }
     }

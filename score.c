@@ -50,7 +50,6 @@ char *give_score(void)
 
     read(fd, score, 12);
     close(fd);
-
     for (; score[i] >= '0' && score[i] <= '9'; i++);
     score[i] = '\0';
     return (score);

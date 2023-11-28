@@ -36,7 +36,7 @@ game_t my_bird(game_t game)
         if (game.b[i].seconds > 1.0) {
             sfClock_restart(game.b[i].clock);
             (game.b[i].position).x += (game.b[i].death == 3) ? 6 : 0;
-            (game.b[i].rect).left = my_co_bird(game.b[i].rect.left, \
+            (game.b[i].rect).left = my_co_bird(game.b[i].rect.left,
             game.b[i].compt);
             game.b[i].compt = (game.b[i].compt >= 30) ? 0 : game.b[i].compt;
             game.b[i].compt++;

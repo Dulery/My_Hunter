@@ -53,22 +53,22 @@ void my_draw_pause(game_t game)
 
 game_t my_menu_event(game_t game)
 {
-    if (sfMouse_isButtonPressed(sfMouseLeft) && \
-    sfMouse_getPositionRenderWindow(game.w).x > 750 && \
-    sfMouse_getPositionRenderWindow(game.w).x < 750 + 100 && \
-    sfMouse_getPositionRenderWindow(game.w).y > 350 && \
+    if (sfMouse_isButtonPressed(sfMouseLeft) &&
+    sfMouse_getPositionRenderWindow(game.w).x > 750 &&
+    sfMouse_getPositionRenderWindow(game.w).x < 750 + 100 &&
+    sfMouse_getPositionRenderWindow(game.w).y > 350 &&
     sfMouse_getPositionRenderWindow(game.w).y < 350 + 100)
         game = recreate_game(game);
-    if (sfMouse_isButtonPressed(sfMouseLeft) && \
-    sfMouse_getPositionRenderWindow(game.w).x > 550 + 100 && \
-    sfMouse_getPositionRenderWindow(game.w).x < 550 + 200 && \
-    sfMouse_getPositionRenderWindow(game.w).y > 350 && \
+    if (sfMouse_isButtonPressed(sfMouseLeft) &&
+    sfMouse_getPositionRenderWindow(game.w).x > 550 + 100 &&
+    sfMouse_getPositionRenderWindow(game.w).x < 550 + 200 &&
+    sfMouse_getPositionRenderWindow(game.w).y > 350 &&
     sfMouse_getPositionRenderWindow(game.w).y < 350 + 100)
         sfRenderWindow_close(game.w);
-    if (sfMouse_isButtonPressed(sfMouseLeft) && \
-    sfMouse_getPositionRenderWindow(game.w).x > 550 && \
-    sfMouse_getPositionRenderWindow(game.w).x < 550 + 100 && \
-    sfMouse_getPositionRenderWindow(game.w).y > 350 && \
+    if (sfMouse_isButtonPressed(sfMouseLeft) &&
+    sfMouse_getPositionRenderWindow(game.w).x > 550 &&
+    sfMouse_getPositionRenderWindow(game.w).x < 550 + 100 &&
+    sfMouse_getPositionRenderWindow(game.w).y > 350 &&
     sfMouse_getPositionRenderWindow(game.w).y < 350 + 100)
         game.loop = 0;
     return (game);
@@ -90,7 +90,7 @@ game_t my_pause2(game_t game)
 game_t my_pause(game_t game)
 {
     game.loop = 0;
-    while (sfKeyboard_isKeyPressed(sfKeySpace) && \
+    while (sfKeyboard_isKeyPressed(sfKeySpace) &&
     sfRenderWindow_isOpen(game.w)) {
         if (!game.loop) {
             my_draw_pause(game);

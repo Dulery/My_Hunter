@@ -49,7 +49,7 @@ char *my_get_score(int nb)
     int tmp;
     int i = -1;
 
-    for (int compt =  nb; compt >= 1; i++)
+    for (int compt = nb; compt >= 1; i++)
         compt = compt / 10;
     tmp = i;
     for (; nb >= 1; i--) {

@@ -21,8 +21,9 @@
 #include "my.h"
 #include "struct.h"
 
-void my_destroy(game_t game) {
-    sfMusic_stop (game.h.gun1);
+void my_destroy(game_t game)
+{
+    sfMusic_stop(game.h.gun1);
     for (int i = 0; i < game.i; i++) {
         sfClock_destroy(game.b[i].clock);
         sfSprite_destroy(game.b[i].sprite);
@@ -62,7 +63,7 @@ int main(int ac, char *av[])
         return (my_put_h());
     if (ac != 1)
         return (84);
-    game = create_game();
+    game = create_game(game);
     menu(game);
     while (sfRenderWindow_isOpen(game.w)) {
         my_draw_window(game);
@@ -72,7 +73,7 @@ int main(int ac, char *av[])
         my_cursor(game);
         game = my_replay(game);
     }
-    sfMusic_stop (game.h.gun2);
+    sfMusic_stop(game.h.gun2);
     my_score(game);
     my_destroy(game);
     return (0);

@@ -8,13 +8,13 @@
 CC	=	gcc
 
 SRC	=	main.c \
-		my_cursor.c \
+		pointeur.c \
 		my_draw_window.c \
-		my_bird.c \
-		my_gun.c \
+		zombies.c \
+		fusil.c \
 		my_create.c \
-		heart.c \
-		my_score.c \
+		coeur.c \
+		score.c \
 		menu.c	\
 		pause.c
 

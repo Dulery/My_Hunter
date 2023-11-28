@@ -7,13 +7,15 @@
 
 #include "struct.h"
 #ifndef MY_H_
-#define MY_H_
+    #define MY_H_
 
 obj_bird_t my_death_bird(obj_bird_t bird);
 
 game_t recreate_game(game_t game);
 
 game_t my_pause(game_t game);
+
+void put_gun(game_t game);
 
 void put_bird(game_t game);
 
@@ -23,7 +25,7 @@ game_t my_replay(game_t game);
 
 void my_destroy(game_t game);
 
-char *give_score();
+char *give_score(void);
 
 void menu(game_t game);
 
@@ -39,8 +41,6 @@ obj_bird_t create_bird(obj_bird_t bird);
 
 obj_heart_t create_heart(obj_heart_t heart);
 
-obj_gun_t create_gun();
-
 obj_gun_t create_gun(obj_gun_t gun);
 
 obj_bird_t create_bird(obj_bird_t bird);
@@ -55,7 +55,7 @@ game_t my_gun_hand(game_t game);
 
 sfRenderWindow *create_window(void);
 
-game_t create_game();
+game_t create_game(game_t game);
 
 game_t re_game(obj_bird_t b, obj_gun_t g, sfRenderWindow *w);
 
@@ -73,4 +73,4 @@ void my_draw_window(game_t game);
 
 game_t my_gun(game_t game);
 
-#endif /* MY_H_ */
+#endif

@@ -29,7 +29,7 @@ obj_bird_t create_bird(obj_bird_t bird)
     (bird.rect).top = 0;
     (bird.rect).left = 110;
     (bird.position).x = -110 - (rand() % 500 + 20);
-    (bird.position).y = rand() % 300 + 20;
+    (bird.position).y = rand() % 325 + 375;
     bird.sprite = sfSprite_create();
     bird.texture = sfTexture_createFromFile("resource/picture/bird.png", NULL);
     sfSprite_setTexture(bird.sprite, bird.texture, sfTrue);
@@ -66,10 +66,10 @@ sfRenderWindow *create_window(void)
     video_mode.width = 1380;
     video_mode.height = 820;
     video_mode.bitsPerPixel = 32;
-    window = sfRenderWindow_create(video_mode, "Hunter", sfClose | \
+    window = sfRenderWindow_create(video_mode, "Hunter", sfClose |
     sfResize, NULL);
     sfRenderWindow_setFramerateLimit(window, 50);
-    sfRenderWindow_setIcon(window, 100, 100, \
+    sfRenderWindow_setIcon(window, 100, 100,
     sfImage_getPixelsPtr(sfImage_createFromFile("resource/picture/icon.png")));
     return (window);
 }
@@ -87,8 +87,8 @@ obj_heart_t create_heart(obj_heart_t heart)
     heart.sprite = sfSprite_create();
     heart.text = sfTexture_createFromFile("resource/picture/heart.png", NULL);
     heart.txt = sfText_create();
-    sfText_setFont(heart.txt, \
-        sfFont_createFromFile("resource/picture/sc.ttf"));    
+    sfText_setFont(heart.txt,
+        sfFont_createFromFile("resource/picture/sc.ttf"));
     sfText_setColor(heart.txt, sfWhite);
     sfText_setCharacterSize(heart.txt, 30);
     heart.gun1 = sfMusic_createFromFile("resource/song/gun1.ogg");

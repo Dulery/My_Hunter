@@ -19,6 +19,8 @@
 
 obj_menu_t create_menu(obj_menu_t menu)
 {
+    sfVector2f menuspr_logo_scale = {10, 10};
+
     menu.position.x = 370;
     menu.position.y = 400;
     menu.pos_text.x = 1200;
@@ -32,11 +34,8 @@ obj_menu_t create_menu(obj_menu_t menu)
     menu.text3 = sfTexture_createFromFile("resource/picture/logo.png", NULL);
     menu.txt = sfText_create();
     sfText_setFont(menu.txt, sfFont_createFromFile("resource/picture/sc.ttf"));
-    sfText_setColor(menu.txt, sfWhite);
     sfText_setCharacterSize(menu.txt, 100);
-    sfVector2f menuspr_logo_scale = {10, 10};
     sfSprite_setScale(menu.spr_logo, menuspr_logo_scale);
-    
     sfSprite_setTexture(menu.spr_b1, menu.text, sfTrue);
     sfSprite_setTexture(menu.spr_logo, menu.text3, sfTrue);
     sfSprite_setPosition(menu.spr_logo, menu.pos_logo);
@@ -58,10 +57,10 @@ void menu(game_t game)
         sfText_setPosition(game.m.txt, game.m.pos_text);
         sfRenderWindow_drawText(game.w, game.m.txt, NULL);
         loop = (sfKeyboard_isKeyPressed(sfKeyEscape)) ? 0 : loop;
-        while (sfMouse_isButtonPressed(sfMouseLeft) && \
-        sfMouse_getPositionRenderWindow(game.w).x > 370 && \
-        sfMouse_getPositionRenderWindow(game.w).x < 988 && \
-        sfMouse_getPositionRenderWindow(game.w).y > 400 && \
+        while (sfMouse_isButtonPressed(sfMouseLeft) &&
+        sfMouse_getPositionRenderWindow(game.w).x > 370 &&
+        sfMouse_getPositionRenderWindow(game.w).x < 988 &&
+        sfMouse_getPositionRenderWindow(game.w).y > 400 &&
         sfMouse_getPositionRenderWindow(game.w).y < 555)
             loop = 0;
     }
@@ -108,10 +107,10 @@ game_t my_replay(game_t game)
     while (!game.game && sfRenderWindow_isOpen(game.w)) {
         put_replay(game);
         game.game = (sfKeyboard_isKeyPressed(sfKeyEscape)) ? 1 : game.game;
-        while (sfMouse_isButtonPressed(sfMouseLeft) && \
-        sfMouse_getPositionRenderWindow(game.w).x > game.m.position.x && \
-        sfMouse_getPositionRenderWindow(game.w).x < game.m.position.x + 618 && \
-        sfMouse_getPositionRenderWindow(game.w).y > game.m.position.y && \
+        while (sfMouse_isButtonPressed(sfMouseLeft) &&
+        sfMouse_getPositionRenderWindow(game.w).x > game.m.position.x &&
+        sfMouse_getPositionRenderWindow(game.w).x < game.m.position.x + 618 &&
+        sfMouse_getPositionRenderWindow(game.w).y > game.m.position.y &&
         sfMouse_getPositionRenderWindow(game.w).y < game.m.position.y + 155) {
             game.game = 1;
             game = recreate_game(game);
