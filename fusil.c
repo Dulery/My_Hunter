@@ -18,7 +18,7 @@
 #include "struct.h"
 #include <stdio.h>
 
-obj_bird_t my_death_bird(obj_bird_t bird)
+stc_zombie mort_zombie(stc_zombie bird)
 {
     int c = bird.death;
 
@@ -29,18 +29,18 @@ obj_bird_t my_death_bird(obj_bird_t bird)
         bird.rect.left = (c < -5 && c >= -13) ? 180 : bird.rect.left;
         bird.rect.left = (c < -13 && c >= -21) ? 360 : bird.rect.left;
         bird.rect.left = (c < -21) ? 460 : bird.rect.left;
-        bird = (c == -29) ? recreate_bird(bird) : bird;
+        bird = (c == -29) ? des_zombie(bird) : bird;
         bird.death = (bird.death == 3) ? bird.death : c - 1;
     }
     return (bird);
 }
 
-void my_gun_song(game_t game)
+void my_gun_song(the_game game)
 {
     sfMusic_play(game.h.gun1);
 }
 
-int my_shoot(obj_bird_t bird, sfRenderWindow *window)
+int my_shoot(stc_zombie bird, sfRenderWindow *window)
 {
     int x = sfMouse_getPositionRenderWindow(window).x;
     int y = sfMouse_getPositionRenderWindow(window).y;
@@ -52,7 +52,7 @@ int my_shoot(obj_bird_t bird, sfRenderWindow *window)
         return (0);
 }
 
-game_t my_gun(game_t game)
+the_game my_gun(the_game game)
 {
     if (sfMouse_isButtonPressed(sfMouseLeft)) {
         my_gun_song(game);
@@ -63,6 +63,6 @@ game_t my_gun(game_t game)
         }
     }
     game = player_heart(game);
-    put_bird(game);
-    return (spawn_bird(game));
+    zombie_place(game);
+    return (spawn_zombie(game));
 }

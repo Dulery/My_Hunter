@@ -22,7 +22,7 @@
 #include "my.h"
 #include "struct.h"
 
-void my_window_close(game_t game)
+void window_close(the_game game)
 {
     while (sfRenderWindow_pollEvent(game.w, &game.event)) {
         if (game.event.type == sfEvtClosed)
@@ -32,7 +32,7 @@ void my_window_close(game_t game)
         sfRenderWindow_close(game.w);
 }
 
-void my_draw_pause(game_t game)
+void my_draw_pause(the_game game)
 {
     sfTexture *texture[3];
     sfSprite *sprite[3];
@@ -51,7 +51,7 @@ void my_draw_pause(game_t game)
     sfRenderWindow_drawSprite(game.w, sprite[2], NULL);
 }
 
-game_t my_menu_event(game_t game)
+the_game my_menu_event(the_game game)
 {
     if (sfMouse_isButtonPressed(sfMouseLeft) &&
     sfMouse_getPositionRenderWindow(game.w).x > 750 &&
@@ -74,20 +74,20 @@ game_t my_menu_event(game_t game)
     return (game);
 }
 
-game_t my_pause2(game_t game)
+the_game pause_part2(the_game game)
 {
     while (game.loop && sfRenderWindow_isOpen(game.w)) {
-        my_window_close(game);
+        window_close(game);
         game = my_menu_event(game);
         while (sfKeyboard_isKeyPressed(sfKeySpace)) {
-            my_window_close(game);
+            window_close(game);
             game.loop = 0;
         }
     }
     return (game);
 }
 
-game_t my_pause(game_t game)
+the_game my_pause(the_game game)
 {
     game.loop = 0;
     while (sfKeyboard_isKeyPressed(sfKeySpace) &&
@@ -98,9 +98,9 @@ game_t my_pause(game_t game)
         }
         game.loop = 1;
         sfRenderWindow_setMouseCursorVisible(game.w, 1);
-        my_window_close(game);
+        window_close(game);
     }
-    game = my_pause2(game);
+    game = pause_part2(game);
     sfRenderWindow_setMouseCursorVisible(game.w, 0);
     return (game);
 }

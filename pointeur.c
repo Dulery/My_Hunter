@@ -11,7 +11,7 @@
 #include <SFML/System/Vector2.h>
 #include "struct.h"
 
-void my_cursor(game_t game)
+void viseur(the_game game)
 {
     int x = 60;
     int y = 60;

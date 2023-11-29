@@ -17,7 +17,7 @@
 #include "my.h"
 #include <stdio.h>
 
-int my_co_bird(int rect, int compt)
+int hit_zombie(int rect, int compt)
 {
     rect = (compt == 5) ? 110 : rect;
     rect = (compt == 10) ? 220 : rect;
@@ -28,7 +28,7 @@ int my_co_bird(int rect, int compt)
     return (rect);
 }
 
-game_t my_bird(game_t game)
+the_game my_zombie(the_game game)
 {
     for (int i = 0; i < game.i; i++) {
         game.b[i].time = sfClock_getElapsedTime(game.b[i].clock);
@@ -36,17 +36,17 @@ game_t my_bird(game_t game)
         if (game.b[i].seconds > 1.0) {
             sfClock_restart(game.b[i].clock);
             (game.b[i].position).x += (game.b[i].death == 3) ? 6 : 0;
-            (game.b[i].rect).left = my_co_bird(game.b[i].rect.left,
+            (game.b[i].rect).left = hit_zombie(game.b[i].rect.left,
             game.b[i].compt);
             game.b[i].compt = (game.b[i].compt >= 30) ? 0 : game.b[i].compt;
             game.b[i].compt++;
-            game.b[i] = my_death_bird(game.b[i]);
+            game.b[i] = mort_zombie(game.b[i]);
         }
     }
     return (game);
 }
 
-void put_bird(game_t game)
+void zombie_place(the_game game)
 {
     for (int i = 0; i < game.i; i++) {
         if (game.b[i].heart) {
@@ -58,9 +58,9 @@ void put_bird(game_t game)
     }
 }
 
-obj_bird_t recreate_bird(obj_bird_t old)
+stc_zombie des_zombie(stc_zombie old)
 {
-    obj_bird_t bird;
+    stc_zombie bird;
 
     sfClock_destroy(old.clock);
     sfSprite_destroy(old.sprite);
@@ -68,7 +68,7 @@ obj_bird_t recreate_bird(obj_bird_t old)
     return (zombie(bird));
 }
 
-game_t spawn_bird(game_t game)
+the_game spawn_zombie(the_game game)
 {
     game.i = (game.h.compt == 4) ? 2 : game.i;
     game.i = (game.h.compt == 10) ? 3 : game.i;

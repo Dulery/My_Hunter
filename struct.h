@@ -28,7 +28,7 @@ typedef struct obj_bird_s {
     sfSprite *sprite;
     sfVector2f position;
     sfIntRect rect;
-} obj_bird_t;
+} stc_zombie;
 
 typedef struct obj_gun_s {
     sfClock *clock;
@@ -53,7 +53,7 @@ typedef struct obj_heart_s {
     sfSprite *sprite;
     sfVector2f position;
     sfMusic* gun1;
-} obj_heart_t;
+} stc_vie;
 
 typedef struct obj_menu_s {
     sfText *txt;
@@ -70,9 +70,9 @@ typedef struct obj_menu_s {
 } obj_menu_t;
 
 typedef struct game_s {
-    obj_bird_t *b;
+    stc_zombie *b;
     sfRenderWindow *w;
-    obj_heart_t h;
+    stc_vie h;
     obj_menu_t m;
     sfTexture *text;
     sfSprite *sprite;
@@ -82,6 +82,6 @@ typedef struct game_s {
     int i;
     int bird;
     int game;
-} game_t;
+} the_game;
 
 #endif

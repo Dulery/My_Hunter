@@ -9,68 +9,68 @@
 #ifndef MY_H_
     #define MY_H_
 
-obj_bird_t my_death_bird(obj_bird_t bird);
+stc_zombie mort_zombie(stc_zombie bird);
 
-game_t recreate_game(game_t game);
+the_game recreate_game(the_game game);
 
-game_t my_pause(game_t game);
+the_game my_pause(the_game game);
 
-void put_gun(game_t game);
+void put_gun(the_game game);
 
-void put_bird(game_t game);
+void zombie_place(the_game game);
 
 char *my_get_score(int nb);
 
-game_t my_replay(game_t game);
+the_game my_replay(the_game game);
 
-void my_destroy(game_t game);
+void my_destroy(the_game game);
 
 char *give_score(void);
 
-void menu(game_t game);
+void menu(the_game game);
 
-game_t spawn_bird(game_t game);
+the_game spawn_zombie(the_game game);
 
-void my_score(game_t game);
+void my_score(the_game game);
 
 int my_put_nbr(int nb, int fd);
 
 int my_getnbr(char const *str);
 
-obj_bird_t zombie(obj_bird_t bird);
+stc_zombie zombie(stc_zombie bird);
 
-obj_heart_t create_heart(obj_heart_t heart);
+stc_vie create_heart(stc_vie heart);
 
 obj_gun_t create_gun(obj_gun_t gun);
 
-obj_bird_t zombie(obj_bird_t bird);
+stc_zombie zombie(stc_zombie bird);
 
 obj_menu_t create_menu(obj_menu_t menu);
 
-game_t player_heart(game_t game);
+the_game player_heart(the_game game);
 
-obj_bird_t recreate_bird(obj_bird_t old);
+stc_zombie des_zombie(stc_zombie old);
 
-game_t my_gun_hand(game_t game);
+the_game my_gun_hand(the_game game);
 
 sfRenderWindow *create_window(void);
 
-game_t create_game(game_t game);
+the_game make_game(the_game game);
 
-game_t re_game(obj_bird_t b, obj_gun_t g, sfRenderWindow *w);
+the_game re_game(stc_zombie b, obj_gun_t g, sfRenderWindow *w);
 
-void put_bird(game_t game);
+void put_bird(the_game game);
 
-void put_heart(game_t game);
+void put_heart(the_game game);
 
-void put_text(game_t game);
+void put_text(the_game game);
 
-void my_cursor(game_t game);
+void viseur(the_game game);
 
-game_t my_bird(game_t game);
+the_game my_zombie(the_game game);
 
-void my_draw_window(game_t game);
+void make_window(the_game game);
 
-game_t my_gun(game_t game);
+the_game my_gun(the_game game);
 
 #endif

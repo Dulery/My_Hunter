@@ -13,10 +13,9 @@
 #include <time.h>
 #include "struct.h"
 
-void my_draw_window(game_t game)
+void make_window(the_game game)
 {
     sfRenderWindow_display(game.w);
-    sfRenderWindow_clear(game.w, sfBlue);
     sfRenderWindow_drawSprite(game.w, game.sprite, NULL);
     while (sfRenderWindow_pollEvent(game.w, &game.event)) {
         if (game.event.type == sfEvtClosed)

@@ -9,7 +9,7 @@ CC	=	gcc
 
 SRC	=	main.c \
 		pointeur.c \
-		my_draw_window.c \
+		my_make_window.c \
 		zombies.c \
 		fusil.c \
 		my_create.c \

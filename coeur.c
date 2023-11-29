@@ -18,12 +18,12 @@
 #include "struct.h"
 #include <stdio.h>
 
-game_t player_heart(game_t game)
+the_game player_heart(the_game game)
 {
     for (int i = 0; i < game.i; i++) {
         if (game.b[i].position.x > 1400) {
             game.h.heart--;
-            game.b[i] = recreate_bird(game.b[i]);
+            game.b[i] = des_zombie(game.b[i]);
             game.h.rect.width -= 15;
         }
     }
@@ -34,7 +34,7 @@ game_t player_heart(game_t game)
     return (game);
 }
 
-void put_heart(game_t game)
+void put_heart(the_game game)
 {
     sfSprite_setTexture(game.h.sprite, game.h.text, sfTrue);
     sfSprite_setTextureRect(game.h.sprite, game.h.rect);
@@ -63,7 +63,7 @@ char *my_get_score(int nb)
     return (str);
 }
 
-void put_text(game_t game)
+void put_text(the_game game)
 {
     char *str = my_get_score(game.h.compt);
 

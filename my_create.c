@@ -17,7 +17,7 @@
 #include "struct.h"
 #include "my.h"
 
-obj_bird_t zombie(obj_bird_t bird)
+stc_zombie zombie(stc_zombie bird)
 {
     bird.death = 3;
     bird.clock = sfClock_create();
@@ -53,7 +53,7 @@ sfRenderWindow *create_window(void)
     return (window);
 }
 
-obj_heart_t create_heart(obj_heart_t heart)
+stc_vie create_heart(stc_vie heart)
 {
     heart.compt = 0;
     heart.heart = 3;
@@ -74,14 +74,14 @@ obj_heart_t create_heart(obj_heart_t heart)
     return (heart);
 }
 
-game_t create_game(game_t game)
+the_game make_game(the_game game)
 {
     game.loop = 0;
     game.m = create_menu(game.m);
     game.game = 1;
     game.i = 1;
     game.bird = 100;
-    game.b = malloc(sizeof(obj_bird_t) * game.bird);
+    game.b = malloc(sizeof(stc_zombie) * game.bird);
     for (int i = 0; i < game.bird; i++)
         game.b[i] = zombie
     (game.b[i]);

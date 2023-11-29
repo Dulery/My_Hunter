@@ -40,12 +40,12 @@ obj_menu_t create_menu(obj_menu_t menu)
     return (menu);
 }
 
-void menu(game_t game)
+void menu(the_game game)
 {
     int loop = 1;
 
     while (loop && sfRenderWindow_isOpen(game.w)) {
-        my_draw_window(game);
+        make_window(game);
         sfSprite_setTexture(game.m.spr_b1, game.m.text, sfTrue);
         sfSprite_setPosition(game.m.spr_b1, game.m.position);
         sfRenderWindow_drawSprite(game.w, game.m.spr_b1, NULL);
@@ -64,14 +64,14 @@ void menu(game_t game)
     sfRenderWindow_setMouseCursorVisible(game.w, 0);
 }
 
-game_t recreate_game(game_t game)
+the_game recreate_game(the_game game)
 {
     game.loop = 0;
     game.m = create_menu(game.m);
     game.game = 1;
     game.i = 1;
     game.bird = 100;
-    game.b = malloc(sizeof(obj_bird_t) * game.bird);
+    game.b = malloc(sizeof(stc_zombie) * game.bird);
     for (int i = 0; i < game.bird; i++)
         game.b[i] = zombie(game.b[i]);
     game.h = create_heart(game.h);
@@ -84,16 +84,16 @@ game_t recreate_game(game_t game)
     return (game);
 }
 
-void put_replay(game_t game)
+void put_replay(the_game game)
 {
-    my_draw_window(game);
+    make_window(game);
     sfSprite_setPosition(game.m.spr_b1, game.m.position);
     sfRenderWindow_drawSprite(game.w, game.m.spr_b1, NULL);
     sfText_setPosition(game.m.txt, game.m.pos_text);
     sfRenderWindow_drawText(game.w, game.m.txt, NULL);
 }
 
-game_t my_replay(game_t game)
+the_game my_replay(the_game game)
 {
     if (!game.game) {
         sfText_setString(game.m.txt, my_get_score(game.h.compt));
