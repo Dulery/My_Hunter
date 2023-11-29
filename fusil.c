@@ -25,8 +25,6 @@ obj_bird_t my_death_bird(obj_bird_t bird)
     if (c < 3) {
         bird.rect.width = 80;
         bird.rect.top = 110;
-        bird.position.y += 2;
-        bird.position.x += 1;
         bird.rect.left = (c < 3 && c >= -5) ? 100 : bird.rect.left;
         bird.rect.left = (c < -5 && c >= -13) ? 180 : bird.rect.left;
         bird.rect.left = (c < -13 && c >= -21) ? 360 : bird.rect.left;
@@ -39,10 +37,7 @@ obj_bird_t my_death_bird(obj_bird_t bird)
 
 void my_gun_song(game_t game)
 {
-    if (rand() % 2)
-        sfMusic_play(game.h.gun1);
-    else
-        sfMusic_play(game.h.gun2);
+    sfMusic_play(game.h.gun1);
 }
 
 int my_shoot(obj_bird_t bird, sfRenderWindow *window)
