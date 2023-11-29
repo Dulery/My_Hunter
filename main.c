@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** MUL_my_hunter_2018
-** File description:
 ** main.c
+** File description:
+** oui
 */
 
 #include <unistd.h>
@@ -29,29 +29,22 @@ void my_destroy(game_t game)
         sfSprite_destroy(game.b[i].sprite);
         sfTexture_destroy(game.b[i].texture);
     }
-    sfClock_destroy(game.g.clock);
-    sfSprite_destroy(game.g.sprite);
-    sfTexture_destroy(game.g.text_exp);
-    sfSprite_destroy(game.g.spr_exp);
-    sfTexture_destroy(game.g.texture);
     sfSprite_destroy(game.h.sprite);
     sfTexture_destroy(game.h.text);
     sfText_destroy(game.h.txt);
     sfTexture_destroy(game.text);
     sfSprite_destroy(game.sprite);
     sfSprite_destroy(game.cursorSpr);
-    sfMusic_destroy(game.h.gun2);
     sfMusic_destroy(game.h.gun1);
     sfRenderWindow_destroy(game.w);
 }
 
 int my_put_h(void)
 {
-    write(1, "Hunter: It's a video game based on the skills and shooting", 59);
-    write(1, " accuracy.\n", 11);
-    write(1, "        Presses on [ESC] to leave the game.\n", 44);
-    write(1, "        Presses on [SPACE] to pause.\n", 37);
-    write(1, "        Use [RIGHT CLICK] to shoot.\n", 36);
+    write(1, "MyHunterZ: l'objectif est de tuer des zombies\n", 47);
+    write(1, "-[échape] pour quitter le jeu.\n", 32);
+    write(1, "-[espace] pour mettre pause.\n", 29);
+    write(1, "-[clique droit] pour utiliser le fusil.\n", 40);
     return (0);
 }
 
@@ -73,8 +66,6 @@ int main(int ac, char *av[])
         my_cursor(game);
         game = my_replay(game);
     }
-    sfMusic_stop(game.h.gun2);
-    my_score(game);
     my_destroy(game);
     return (0);
 }

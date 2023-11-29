@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** MUL_my_hunter_2018
+** creer
 ** File description:
-** main.c
+** oui
 */
 
 #include <time.h>
@@ -17,7 +17,7 @@
 #include "struct.h"
 #include "my.h"
 
-obj_bird_t create_bird(obj_bird_t bird)
+obj_bird_t zombie(obj_bird_t bird)
 {
     bird.death = 3;
     bird.clock = sfClock_create();
@@ -34,27 +34,6 @@ obj_bird_t create_bird(obj_bird_t bird)
     bird.texture = sfTexture_createFromFile("resource/picture/bird.png", NULL);
     sfSprite_setTexture(bird.sprite, bird.texture, sfTrue);
     return (bird);
-}
-
-obj_gun_t create_gun(obj_gun_t gun)
-{
-    gun.clock = sfClock_create();
-    gun.seconds = 0;
-    gun.compt = 0;
-    (gun.rect).height = 174;
-    (gun.rect).width = 130;
-    (gun.rect).top = 0;
-    (gun.rect).left = 0;
-    (gun.position).x = 1000;
-    (gun.position).y = 650;
-    gun.sprite = sfSprite_create();
-    gun.texture = sfTexture_createFromFile("resource/picture/gun.png", NULL);
-    sfSprite_setTexture(gun.sprite, gun.texture, sfTrue);
-    (gun.pos_exp).y = 600;
-    gun.spr_exp = sfSprite_create();
-    gun.text_exp = sfTexture_createFromFile("resource/picture/exp.png", NULL);
-    sfSprite_setTexture(gun.spr_exp, gun.text_exp, sfTrue);
-    return (gun);
 }
 
 sfRenderWindow *create_window(void)
@@ -92,7 +71,6 @@ obj_heart_t create_heart(obj_heart_t heart)
     sfText_setColor(heart.txt, sfWhite);
     sfText_setCharacterSize(heart.txt, 30);
     heart.gun1 = sfMusic_createFromFile("resource/song/gun1.ogg");
-    heart.gun2 = sfMusic_createFromFile("resource/song/gun2.ogg");
     return (heart);
 }
 
@@ -105,8 +83,8 @@ game_t create_game(game_t game)
     game.bird = 100;
     game.b = malloc(sizeof(obj_bird_t) * game.bird);
     for (int i = 0; i < game.bird; i++)
-        game.b[i] = create_bird(game.b[i]);
-    game.g = create_gun(game.g);
+        game.b[i] = zombie
+    (game.b[i]);
     game.w = create_window();
     game.h = create_heart(game.h);
     game.text = sfTexture_createFromFile("resource/picture/forest.png", NULL);

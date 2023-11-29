@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** MUL_my_hunter_2018
+** Viseur
 ** File description:
-** my_cursor.c
+** oui
 */
 
 #include <stdlib.h>

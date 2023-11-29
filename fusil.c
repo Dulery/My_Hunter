@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2018
-** MUL_my_hunter_2018
+** EPITECH PROJECT, 2023
+** fusil.c
 ** File description:
-** main.c
+** oui
 */
 
 #include <time.h>
@@ -54,13 +54,7 @@ int my_shoot(obj_bird_t bird, sfRenderWindow *window)
 
 game_t my_gun(game_t game)
 {
-    game.g.time = sfClock_getElapsedTime(game.g.clock);
-    game.g.seconds = game.g.time.microseconds / 100000.0;
-    if (game.g.seconds > 1.0) {
-        sfClock_restart(game.g.clock);
-        game.g.compt = (game.g.compt) ? game.g.compt - 1 : 0;
-    }
-    if (sfMouse_isButtonPressed(sfMouseLeft) && !game.g.compt) {
+    if (sfMouse_isButtonPressed(sfMouseLeft)) {
         my_gun_song(game);
         for (int i = 0; i < game.i; i++) {
             game.h.compt += my_shoot(game.b[i], game.w);

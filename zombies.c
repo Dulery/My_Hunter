@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** MUL_my_hunter_2018
+** zombies
 ** File description:
-** main.c
+** oui
 */
 
 #include <stdlib.h>
@@ -65,7 +65,7 @@ obj_bird_t recreate_bird(obj_bird_t old)
     sfClock_destroy(old.clock);
     sfSprite_destroy(old.sprite);
     sfTexture_destroy(old.texture);
-    return (create_bird(bird));
+    return (zombie(bird));
 }
 
 game_t spawn_bird(game_t game)

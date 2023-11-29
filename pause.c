@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** MUL_my_hunter_2018
+** menupause
 ** File description:
-** pause.c
+** oui
 */
 
 #include <stdio.h>

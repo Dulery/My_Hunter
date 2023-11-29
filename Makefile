@@ -2,7 +2,7 @@
 ## EPITECH PROJECT, 2018
 ## Makefile
 ## File description:
-## my make file
+## oui
 ##
 
 CC	=	gcc
@@ -14,7 +14,7 @@ SRC	=	main.c \
 		fusil.c \
 		my_create.c \
 		coeur.c \
-		score.c \
+		lib_bis.c \
 		menu.c	\
 		pause.c
 

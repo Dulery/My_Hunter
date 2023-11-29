@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2018
-** MUL_my_hunter_2018
+** EPITECH PROJECT, 2023
+** vie.c
 ** File description:
-** main.c
+** oui
 */
 
 #include <time.h>
@@ -28,7 +28,6 @@ game_t player_heart(game_t game)
         }
     }
     if (game.h.heart <= 0) {
-        my_score(game);
         game.game = 0;
     }
     put_heart(game);

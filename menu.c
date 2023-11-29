@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** MUL_my_hunter_2018
+** allmenu.c
 ** File description:
-** main.c
+** oui
 */
 
 #include <time.h>
@@ -37,7 +37,6 @@ obj_menu_t create_menu(obj_menu_t menu)
     sfSprite_setTexture(menu.spr_b1, menu.text, sfTrue);
     sfSprite_setTexture(menu.spr_logo, menu.text3, sfTrue);
     sfSprite_setPosition(menu.spr_logo, menu.pos_logo);
-    menu.score = give_score();
     return (menu);
 }
 
@@ -74,8 +73,7 @@ game_t recreate_game(game_t game)
     game.bird = 100;
     game.b = malloc(sizeof(obj_bird_t) * game.bird);
     for (int i = 0; i < game.bird; i++)
-        game.b[i] = create_bird(game.b[i]);
-    game.g = create_gun(game.g);
+        game.b[i] = zombie(game.b[i]);
     game.h = create_heart(game.h);
     game.text = sfTexture_createFromFile("resource/picture/forest.png", NULL);
     game.sprite = sfSprite_create();

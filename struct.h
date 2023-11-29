@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** struct.h
+** my_struct.c
 ** File description:
-** my structs
+** oui
 */
 
 #include <stdlib.h>
@@ -53,7 +53,6 @@ typedef struct obj_heart_s {
     sfSprite *sprite;
     sfVector2f position;
     sfMusic* gun1;
-    sfMusic* gun2;
 } obj_heart_t;
 
 typedef struct obj_menu_s {
@@ -72,7 +71,6 @@ typedef struct obj_menu_s {
 
 typedef struct game_s {
     obj_bird_t *b;
-    obj_gun_t g;
     sfRenderWindow *w;
     obj_heart_t h;
     obj_menu_t m;
@@ -83,7 +81,6 @@ typedef struct game_s {
     int loop;
     int i;
     int bird;
-    int score;
     int game;
 } game_t;
 

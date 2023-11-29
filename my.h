@@ -37,13 +37,13 @@ int my_put_nbr(int nb, int fd);
 
 int my_getnbr(char const *str);
 
-obj_bird_t create_bird(obj_bird_t bird);
+obj_bird_t zombie(obj_bird_t bird);
 
 obj_heart_t create_heart(obj_heart_t heart);
 
 obj_gun_t create_gun(obj_gun_t gun);
 
-obj_bird_t create_bird(obj_bird_t bird);
+obj_bird_t zombie(obj_bird_t bird);
 
 obj_menu_t create_menu(obj_menu_t menu);
 

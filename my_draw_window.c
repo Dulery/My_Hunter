@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** MUL_my_hunter_2018
+** window
 ** File description:
-** my_draw_window.c
+** oui
 */
 
 #include <stdlib.h>

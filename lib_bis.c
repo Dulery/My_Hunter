@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2018
-** step3.c
+** EPITECH PROJECT, 2023
+** libbis.c
 ** File description:
-** Task03
+** oui
 */
 
 #include <unistd.h>
@@ -40,28 +40,4 @@ int my_getnbr(char const *str)
         j--;
     }
     return (rtn);
-}
-
-char *give_score(void)
-{
-    int i = 0;
-    int fd = open("resource/score", O_RDWR);
-    char *score = malloc(sizeof(char) * 12);
-
-    read(fd, score, 12);
-    close(fd);
-    for (; score[i] >= '0' && score[i] <= '9'; i++);
-    score[i] = '\0';
-    return (score);
-}
-
-void my_score(game_t game)
-{
-    int fd = open("resource/score", O_RDWR);
-    char *score = give_score();
-
-    if (game.h.compt > my_getnbr(score))
-        my_put_nbr(game.h.compt, fd);
-    close(fd);
-    free(score);
 }
