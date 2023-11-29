@@ -5,9 +5,7 @@
 ** oui
 */
 
-#include <stdlib.h>
-#include <SFML/Graphics.h>
-#include <SFML/Audio.h>
+#include "my.h"
 
 #ifndef STRUCT_H_
     #define STRUCT_H_

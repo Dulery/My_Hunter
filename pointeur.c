@@ -5,10 +5,7 @@
 ** oui
 */
 
-#include <stdlib.h>
-#include <SFML/Graphics.h>
-#include <SFML/Window.h>
-#include "struct.h"
+#include "my.h"
 
 void viseur(the_game game)
 {

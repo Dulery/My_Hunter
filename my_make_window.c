@@ -5,12 +5,7 @@
 ** oui
 */
 
-#include <stdlib.h>
-#include <SFML/Graphics.h>
-#include <SFML/Audio.h>
-#include <SFML/Window.h>
-#include <time.h>
-#include "struct.h"
+#include "my.h"
 
 void make_window(the_game game)
 {

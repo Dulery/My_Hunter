@@ -5,11 +5,6 @@
 ** oui
 */
 
-#include <time.h>
-#include <stdlib.h>
-#include <SFML/Graphics.h>
-#include <SFML/Audio.h>
-#include "struct.h"
 #include "my.h"
 
 stc_menu create_menu(stc_menu menu)

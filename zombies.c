@@ -5,12 +5,7 @@
 ** oui
 */
 
-#include <stdlib.h>
-#include <SFML/Graphics.h>
-#include <SFML/Audio.h>
-#include "struct.h"
 #include "my.h"
-#include <stdio.h>
 
 int hit_zombie(int rect, int compt)
 {

@@ -5,16 +5,7 @@
 ** oui
 */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <SFML/Graphics.h>
-#include <SFML/Audio.h>
-#include <time.h>
 #include "my.h"
-#include "struct.h"
 
 void my_destroy(the_game game)
 {

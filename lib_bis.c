@@ -5,12 +5,7 @@
 ** oui
 */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include "struct.h"
+#include "my.h"
 
 void my_putchar(char c, int fd)
 {

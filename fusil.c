@@ -5,13 +5,7 @@
 ** oui
 */
 
-#include <time.h>
-#include <stdlib.h>
-#include <SFML/Graphics.h>
-#include <SFML/Audio.h>
 #include "my.h"
-#include "struct.h"
-#include <stdio.h>
 
 stc_zombie mort_zombie(stc_zombie bird)
 {
