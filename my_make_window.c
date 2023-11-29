@@ -9,7 +9,6 @@
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
 #include <SFML/Window.h>
-#include <SFML/System/Vector2.h>
 #include <time.h>
 #include "struct.h"
 

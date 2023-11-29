@@ -11,7 +11,7 @@
 
 stc_zombie mort_zombie(stc_zombie bird);
 
-the_game recreate_game(the_game game);
+the_game remake_game(the_game game);
 
 the_game my_pause(the_game game);
 
@@ -39,13 +39,13 @@ int my_getnbr(char const *str);
 
 stc_zombie zombie(stc_zombie bird);
 
-stc_vie create_heart(stc_vie heart);
+stc_vie create_vie(stc_vie heart);
 
 obj_gun_t create_gun(obj_gun_t gun);
 
 stc_zombie zombie(stc_zombie bird);
 
-obj_menu_t create_menu(obj_menu_t menu);
+stc_menu create_menu(stc_menu menu);
 
 the_game player_heart(the_game game);
 

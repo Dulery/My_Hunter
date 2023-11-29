@@ -12,11 +12,6 @@
 #include <fcntl.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
-#include <SFML/Window.h>
-#include <SFML/System/Vector2.h>
-#include <SFML/System/Export.h>
-#include <SFML/System/Time.h>
-#include <SFML/System/Types.h>
 #include <time.h>
 #include "my.h"
 #include "struct.h"
@@ -39,7 +34,7 @@ void my_destroy(the_game game)
     sfRenderWindow_destroy(game.w);
 }
 
-int my_put_h(void)
+int put_h(void)
 {
     write(1, "MyHunterZ: l'objectif est de tuer des zombies\n", 47);
     write(1, "-[échape] pour quitter le jeu.\n", 32);
@@ -53,7 +48,7 @@ int main(int ac, char *av[])
     the_game game;
 
     if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h' && av[1][2] == '\0')
-        return (my_put_h());
+        return (put_h());
     if (ac != 1)
         return (84);
     game = make_game(game);

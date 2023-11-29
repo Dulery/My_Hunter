@@ -9,11 +9,6 @@
 #include <stdlib.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
-#include <SFML/Window.h>
-#include <SFML/System/Vector2.h>
-#include <SFML/System/Export.h>
-#include <SFML/System/Time.h>
-#include <SFML/System/Types.h>
 #include "my.h"
 #include "struct.h"
 #include <stdio.h>

@@ -13,11 +13,6 @@
 #include <fcntl.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
-#include <SFML/Window.h>
-#include <SFML/System/Vector2.h>
-#include <SFML/System/Export.h>
-#include <SFML/System/Time.h>
-#include <SFML/System/Types.h>
 #include <time.h>
 #include "my.h"
 #include "struct.h"
@@ -58,7 +53,7 @@ the_game my_menu_event(the_game game)
     sfMouse_getPositionRenderWindow(game.w).x < 750 + 100 &&
     sfMouse_getPositionRenderWindow(game.w).y > 350 &&
     sfMouse_getPositionRenderWindow(game.w).y < 350 + 100)
-        game = recreate_game(game);
+        game = remake_game(game);
     if (sfMouse_isButtonPressed(sfMouseLeft) &&
     sfMouse_getPositionRenderWindow(game.w).x > 550 + 100 &&
     sfMouse_getPositionRenderWindow(game.w).x < 550 + 200 &&

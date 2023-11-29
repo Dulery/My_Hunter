@@ -8,7 +8,6 @@
 #include <stdlib.h>
 #include <SFML/Graphics.h>
 #include <SFML/Window.h>
-#include <SFML/System/Vector2.h>
 #include "struct.h"
 
 void viseur(the_game game)

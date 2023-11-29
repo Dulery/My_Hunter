@@ -9,15 +9,10 @@
 #include <stdlib.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
-#include <SFML/Window.h>
-#include <SFML/System/Vector2.h>
-#include <SFML/System/Export.h>
-#include <SFML/System/Time.h>
-#include <SFML/System/Types.h>
 #include "struct.h"
 #include "my.h"
 
-obj_menu_t create_menu(obj_menu_t menu)
+stc_menu create_menu(stc_menu menu)
 {
     sfVector2f menuspr_logo_scale = {10, 10};
     menu.position.x = 370;
@@ -64,7 +59,7 @@ void menu(the_game game)
     sfRenderWindow_setMouseCursorVisible(game.w, 0);
 }
 
-the_game recreate_game(the_game game)
+the_game remake_game(the_game game)
 {
     game.loop = 0;
     game.m = create_menu(game.m);
@@ -74,7 +69,7 @@ the_game recreate_game(the_game game)
     game.b = malloc(sizeof(stc_zombie) * game.bird);
     for (int i = 0; i < game.bird; i++)
         game.b[i] = zombie(game.b[i]);
-    game.h = create_heart(game.h);
+    game.h = create_vie(game.h);
     game.text = sfTexture_createFromFile("resource/picture/forest.png", NULL);
     game.sprite = sfSprite_create();
     sfSprite_setTexture(game.sprite, game.text, sfTrue);
@@ -84,7 +79,7 @@ the_game recreate_game(the_game game)
     return (game);
 }
 
-void put_replay(the_game game)
+void place_replay(the_game game)
 {
     make_window(game);
     sfSprite_setPosition(game.m.spr_b1, game.m.position);
@@ -101,7 +96,7 @@ the_game my_replay(the_game game)
         sfSprite_setTexture(game.m.spr_b1, game.m.text2, sfTrue);
     }
     while (!game.game && sfRenderWindow_isOpen(game.w)) {
-        put_replay(game);
+        place_replay(game);
         game.game = (sfKeyboard_isKeyPressed(sfKeyEscape)) ? 1 : game.game;
         while (sfMouse_isButtonPressed(sfMouseLeft) &&
         sfMouse_getPositionRenderWindow(game.w).x > game.m.position.x &&
@@ -109,7 +104,7 @@ the_game my_replay(the_game game)
         sfMouse_getPositionRenderWindow(game.w).y > game.m.position.y &&
         sfMouse_getPositionRenderWindow(game.w).y < game.m.position.y + 155) {
             game.game = 1;
-            game = recreate_game(game);
+            game = remake_game(game);
         }
     }
     sfRenderWindow_setMouseCursorVisible(game.w, 0);

@@ -9,11 +9,6 @@
 #include <stdlib.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
-#include <SFML/Window.h>
-#include <SFML/System/Vector2.h>
-#include <SFML/System/Export.h>
-#include <SFML/System/Time.h>
-#include <SFML/System/Types.h>
 #include "struct.h"
 #include "my.h"
 
@@ -53,7 +48,7 @@ sfRenderWindow *create_window(void)
     return (window);
 }
 
-stc_vie create_heart(stc_vie heart)
+stc_vie create_vie(stc_vie heart)
 {
     heart.compt = 0;
     heart.heart = 3;
@@ -86,7 +81,7 @@ the_game make_game(the_game game)
         game.b[i] = zombie
     (game.b[i]);
     game.w = create_window();
-    game.h = create_heart(game.h);
+    game.h = create_vie(game.h);
     game.text = sfTexture_createFromFile("resource/picture/forest.png", NULL);
     game.sprite = sfSprite_create();
     sfSprite_setTexture(game.sprite, game.text, sfTrue);

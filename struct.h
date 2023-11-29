@@ -8,11 +8,6 @@
 #include <stdlib.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
-#include <SFML/Window.h>
-#include <SFML/System/Vector2.h>
-#include <SFML/System/Export.h>
-#include <SFML/System/Time.h>
-#include <SFML/System/Types.h>
 
 #ifndef STRUCT_H_
     #define STRUCT_H_
@@ -67,13 +62,13 @@ typedef struct obj_menu_s {
     sfVector2f pos_text;
     sfVector2f pos_logo;
 
-} obj_menu_t;
+} stc_menu;
 
 typedef struct game_s {
     stc_zombie *b;
     sfRenderWindow *w;
     stc_vie h;
-    obj_menu_t m;
+    stc_menu m;
     sfTexture *text;
     sfSprite *sprite;
     sfEvent event;
