@@ -7,21 +7,21 @@
 
 #include "my.h"
 
-stc_zombie mort_zombie(stc_zombie bird)
+stc_zombie mort_zombie(stc_zombie tzombie)
 {
-    int c = bird.death;
+    int c = tzombie.death;
 
     if (c < 3) {
-        bird.rect.width = 80;
-        bird.rect.top = 110;
-        bird.rect.left = (c < 3 && c >= -5) ? 100 : bird.rect.left;
-        bird.rect.left = (c < -5 && c >= -13) ? 180 : bird.rect.left;
-        bird.rect.left = (c < -13 && c >= -21) ? 360 : bird.rect.left;
-        bird.rect.left = (c < -21) ? 460 : bird.rect.left;
-        bird = (c == -29) ? des_zombie(bird) : bird;
-        bird.death = (bird.death == 3) ? bird.death : c - 1;
+        tzombie.rect.width = 80;
+        tzombie.rect.top = 110;
+        tzombie.rect.left = (c < 3 && c >= -5) ? 100 : tzombie.rect.left;
+        tzombie.rect.left = (c < -5 && c >= -13) ? 180 : tzombie.rect.left;
+        tzombie.rect.left = (c < -13 && c >= -21) ? 360 : tzombie.rect.left;
+        tzombie.rect.left = (c < -21) ? 460 : tzombie.rect.left;
+        tzombie = (c == -29) ? des_zombie(tzombie) : tzombie;
+        tzombie.death = (tzombie.death == 3) ? tzombie.death : c - 1;
     }
-    return (bird);
+    return (tzombie);
 }
 
 void my_gun_song(the_game game)
@@ -29,13 +29,14 @@ void my_gun_song(the_game game)
     sfMusic_play(game.h.gun1);
 }
 
-int my_shoot(stc_zombie bird, sfRenderWindow *window)
+int my_shoot(stc_zombie tzombie, sfRenderWindow *window)
 {
     int x = sfMouse_getPositionRenderWindow(window).x;
     int y = sfMouse_getPositionRenderWindow(window).y;
 
-    if ((bird.position).x + 100 > x && (bird.position).x < x &&
-    bird.position.y + 100 > y && bird.position.y < y && bird.death == 3)
+    if ((tzombie.position).x + 100 > x && (tzombie.position).x < x &&
+    tzombie.position.y + 100 > y &&
+    tzombie.position.y < y && tzombie.death == 3)
         return (1);
     else
         return (0);

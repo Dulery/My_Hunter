@@ -9,6 +9,7 @@
 
 void my_destroy(the_game game)
 {
+    sfMusic_destroy(game.h.music);
     sfMusic_stop(game.h.gun1);
     for (int i = 0; i < game.i; i++) {
         sfClock_destroy(game.b[i].clock);
@@ -43,6 +44,7 @@ int main(int ac, char *av[])
     if (ac != 1)
         return (84);
     game = make_game(game);
+    bestmusicofalltime(game);
     menu(game);
     while (sfRenderWindow_isOpen(game.w)) {
         make_window(game);
@@ -53,5 +55,13 @@ int main(int ac, char *av[])
         game = my_replay(game);
     }
     my_destroy(game);
-    return (0);
+    return 0;
+}
+
+int bestmusicofalltime(the_game game)
+{
+    game.h.music = sfMusic_createFromFile("resource/song/playsong.ogg");
+    sfMusic_setLoop(game.h.music, sfTrue);
+    sfMusic_play(game.h.music);
+    return 0;
 }

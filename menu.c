@@ -60,9 +60,9 @@ the_game remake_game(the_game game)
     game.m = create_menu(game.m);
     game.game = 1;
     game.i = 1;
-    game.bird = 100;
-    game.b = malloc(sizeof(stc_zombie) * game.bird);
-    for (int i = 0; i < game.bird; i++)
+    game.tzombie = 100;
+    game.b = malloc(sizeof(stc_zombie) * game.tzombie);
+    for (int i = 0; i < game.tzombie; i++)
         game.b[i] = zombie(game.b[i]);
     game.h = create_vie(game.h);
     game.text = sfTexture_createFromFile("resource/picture/forest.png", NULL);

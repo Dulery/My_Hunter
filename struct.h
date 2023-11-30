@@ -46,6 +46,7 @@ typedef struct obj_heart_s {
     sfSprite *sprite;
     sfVector2f position;
     sfMusic* gun1;
+    sfMusic* music;
 } stc_vie;
 
 typedef struct obj_menu_s {
@@ -73,7 +74,7 @@ typedef struct game_s {
     sfSprite *cursorSpr;
     int loop;
     int i;
-    int bird;
+    int tzombie;
     int game;
 } the_game;
 

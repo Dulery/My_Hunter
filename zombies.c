@@ -50,12 +50,12 @@ void zombie_place(the_game game)
 
 stc_zombie des_zombie(stc_zombie old)
 {
-    stc_zombie bird;
+    stc_zombie tzombie;
 
     sfClock_destroy(old.clock);
     sfSprite_destroy(old.sprite);
     sfTexture_destroy(old.texture);
-    return (zombie(bird));
+    return (zombie(tzombie));
 }
 
 the_game spawn_zombie(the_game game)

@@ -7,23 +7,24 @@
 
 #include "my.h"
 
-stc_zombie zombie(stc_zombie bird)
+stc_zombie zombie(stc_zombie tzombie)
 {
-    bird.death = 3;
-    bird.clock = sfClock_create();
-    bird.seconds = 0;
-    bird.compt = 0;
-    bird.heart = 1;
-    (bird.rect).height = 110;
-    (bird.rect).width = 100;
-    (bird.rect).top = 0;
-    (bird.rect).left = 110;
-    (bird.position).x = -110 - (rand() % 500 + 20);
-    (bird.position).y = rand() % 325 + 375;
-    bird.sprite = sfSprite_create();
-    bird.texture = sfTexture_createFromFile("resource/picture/bird.png", NULL);
-    sfSprite_setTexture(bird.sprite, bird.texture, sfTrue);
-    return (bird);
+    tzombie.death = 3;
+    tzombie.clock = sfClock_create();
+    tzombie.seconds = 0;
+    tzombie.compt = 0;
+    tzombie.heart = 1;
+    (tzombie.rect).height = 110;
+    (tzombie.rect).width = 100;
+    (tzombie.rect).top = 0;
+    (tzombie.rect).left = 110;
+    (tzombie.position).x = -110 - (rand() % 500 + 20);
+    (tzombie.position).y = rand() % 325 + 375;
+    tzombie.sprite = sfSprite_create();
+    tzombie.texture = sfTexture_createFromFile
+    ("resource/picture/tzombie.png", NULL);
+    sfSprite_setTexture(tzombie.sprite, tzombie.texture, sfTrue);
+    return (tzombie);
 }
 
 sfRenderWindow *create_window(void)
@@ -70,9 +71,9 @@ the_game make_game(the_game game)
     game.m = create_menu(game.m);
     game.game = 1;
     game.i = 1;
-    game.bird = 100;
-    game.b = malloc(sizeof(stc_zombie) * game.bird);
-    for (int i = 0; i < game.bird; i++)
+    game.tzombie = 100;
+    game.b = malloc(sizeof(stc_zombie) * game.tzombie);
+    for (int i = 0; i < game.tzombie; i++)
         game.b[i] = zombie
     (game.b[i]);
     game.w = create_window();
