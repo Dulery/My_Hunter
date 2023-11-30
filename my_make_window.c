@@ -9,12 +9,12 @@
 
 void make_window(the_game game)
 {
-    sfRenderWindow_display(game.w);
-    sfRenderWindow_drawSprite(game.w, game.sprite, NULL);
-    while (sfRenderWindow_pollEvent(game.w, &game.event)) {
+    sfRenderWindow_display(game.k);
+    sfRenderWindow_drawSprite(game.k, game.sprite, NULL);
+    while (sfRenderWindow_pollEvent(game.k, &game.event)) {
         if (game.event.type == sfEvtClosed)
-            sfRenderWindow_close(game.w);
+            sfRenderWindow_close(game.k);
     }
     if (sfKeyboard_isKeyPressed(sfKeyEscape))
-        sfRenderWindow_close(game.w);
+        sfRenderWindow_close(game.k);
 }

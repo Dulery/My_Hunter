@@ -10,20 +10,7 @@
 #ifndef STRUCT_H_
     #define STRUCT_H_
 
-typedef struct obj_bird_s {
-    sfClock *clock;
-    sfTime time;
-    float seconds;
-    int compt;
-    int heart;
-    int death;
-    sfTexture *texture;
-    sfSprite *sprite;
-    sfVector2f position;
-    sfIntRect rect;
-} stc_zombie;
-
-typedef struct obj_gun_s {
+typedef struct the_stcfusil {
     sfClock *clock;
     sfTime time;
     float seconds;
@@ -35,9 +22,22 @@ typedef struct obj_gun_s {
     sfSprite *sprite;
     sfVector2f position;
     sfIntRect rect;
-} obj_gun_t;
+} stc_fusil;
 
-typedef struct obj_heart_s {
+typedef struct the_stcz {
+    sfClock *clock;
+    sfTime time;
+    float seconds;
+    int compteur;
+    int vies;
+    int mort;
+    sfTexture *texture;
+    sfSprite *sprite;
+    sfVector2f position;
+    sfIntRect rect;
+} stc_zombie;
+
+typedef struct the_coeur {
     int heart;
     int compt;
     sfIntRect rect;
@@ -49,7 +49,7 @@ typedef struct obj_heart_s {
     sfMusic* music;
 } stc_vie;
 
-typedef struct obj_menu_s {
+typedef struct the_menu {
     sfText *txt;
     char *score;
     sfTexture *text;
@@ -63,10 +63,10 @@ typedef struct obj_menu_s {
 
 } stc_menu;
 
-typedef struct game_s {
-    stc_zombie *b;
-    sfRenderWindow *w;
-    stc_vie h;
+typedef struct the_game {
+    stc_zombie *z;
+    sfRenderWindow *k;
+    stc_vie j;
     stc_menu m;
     sfTexture *text;
     sfSprite *sprite;

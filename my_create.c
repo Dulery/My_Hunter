@@ -9,11 +9,11 @@
 
 stc_zombie zombie(stc_zombie tzombie)
 {
-    tzombie.death = 3;
+    tzombie.mort = 3;
     tzombie.clock = sfClock_create();
     tzombie.seconds = 0;
-    tzombie.compt = 0;
-    tzombie.heart = 1;
+    tzombie.compteur = 0;
+    tzombie.vies = 1;
     (tzombie.rect).height = 110;
     (tzombie.rect).width = 100;
     (tzombie.rect).top = 0;
@@ -72,12 +72,12 @@ the_game make_game(the_game game)
     game.game = 1;
     game.i = 1;
     game.tzombie = 100;
-    game.b = malloc(sizeof(stc_zombie) * game.tzombie);
+    game.z = malloc(sizeof(stc_zombie) * game.tzombie);
     for (int i = 0; i < game.tzombie; i++)
-        game.b[i] = zombie
-    (game.b[i]);
-    game.w = create_window();
-    game.h = create_vie(game.h);
+        game.z[i] = zombie
+    (game.z[i]);
+    game.k = create_window();
+    game.j = create_vie(game.j);
     game.text = sfTexture_createFromFile("resource/picture/forest.png", NULL);
     game.sprite = sfSprite_create();
     sfSprite_setTexture(game.sprite, game.text, sfTrue);

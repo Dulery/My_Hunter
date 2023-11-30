@@ -34,37 +34,37 @@ void menu(the_game game)
 {
     int loop = 1;
 
-    while (loop && sfRenderWindow_isOpen(game.w)) {
+    while (loop && sfRenderWindow_isOpen(game.k)) {
         make_window(game);
         sfSprite_setTexture(game.m.spr_b1, game.m.text, sfTrue);
         sfSprite_setPosition(game.m.spr_b1, game.m.position);
-        sfRenderWindow_drawSprite(game.w, game.m.spr_b1, NULL);
-        sfRenderWindow_drawSprite(game.w, game.m.spr_logo, NULL);
+        sfRenderWindow_drawSprite(game.k, game.m.spr_b1, NULL);
+        sfRenderWindow_drawSprite(game.k, game.m.spr_logo, NULL);
         sfText_setString(game.m.txt, game.m.score);
         sfText_setPosition(game.m.txt, game.m.pos_text);
-        sfRenderWindow_drawText(game.w, game.m.txt, NULL);
+        sfRenderWindow_drawText(game.k, game.m.txt, NULL);
         loop = (sfKeyboard_isKeyPressed(sfKeyEscape)) ? 0 : loop;
         while (sfMouse_isButtonPressed(sfMouseLeft) &&
-        sfMouse_getPositionRenderWindow(game.w).x > 370 &&
-        sfMouse_getPositionRenderWindow(game.w).x < 988 &&
-        sfMouse_getPositionRenderWindow(game.w).y > 400 &&
-        sfMouse_getPositionRenderWindow(game.w).y < 555)
+        sfMouse_getPositionRenderWindow(game.k).x > 370 &&
+        sfMouse_getPositionRenderWindow(game.k).x < 988 &&
+        sfMouse_getPositionRenderWindow(game.k).y > 400 &&
+        sfMouse_getPositionRenderWindow(game.k).y < 555)
             loop = 0;
     }
-    sfRenderWindow_setMouseCursorVisible(game.w, 0);
+    sfRenderWindow_setMouseCursorVisible(game.k, 0);
 }
 
 the_game remake_game(the_game game)
 {
-    game.loop = 0;
     game.m = create_menu(game.m);
     game.game = 1;
     game.i = 1;
+    game.loop = 0;
     game.tzombie = 100;
-    game.b = malloc(sizeof(stc_zombie) * game.tzombie);
+    game.z = malloc(sizeof(stc_zombie) * game.tzombie);
     for (int i = 0; i < game.tzombie; i++)
-        game.b[i] = zombie(game.b[i]);
-    game.h = create_vie(game.h);
+        game.z[i] = zombie(game.z[i]);
+    game.j = create_vie(game.j);
     game.text = sfTexture_createFromFile("resource/picture/forest.png", NULL);
     game.sprite = sfSprite_create();
     sfSprite_setTexture(game.sprite, game.text, sfTrue);
@@ -78,31 +78,31 @@ void place_replay(the_game game)
 {
     make_window(game);
     sfSprite_setPosition(game.m.spr_b1, game.m.position);
-    sfRenderWindow_drawSprite(game.w, game.m.spr_b1, NULL);
+    sfRenderWindow_drawSprite(game.k, game.m.spr_b1, NULL);
     sfText_setPosition(game.m.txt, game.m.pos_text);
-    sfRenderWindow_drawText(game.w, game.m.txt, NULL);
+    sfRenderWindow_drawText(game.k, game.m.txt, NULL);
 }
 
 the_game my_replay(the_game game)
 {
     if (!game.game) {
-        sfText_setString(game.m.txt, my_get_score(game.h.compt));
-        sfRenderWindow_setMouseCursorVisible(game.w, 1);
+        sfText_setString(game.m.txt, my_get_score(game.j.compt));
+        sfRenderWindow_setMouseCursorVisible(game.k, 1);
         sfSprite_setTexture(game.m.spr_b1, game.m.text2, sfTrue);
     }
-    while (!game.game && sfRenderWindow_isOpen(game.w)) {
+    while (!game.game && sfRenderWindow_isOpen(game.k)) {
         place_replay(game);
         game.game = (sfKeyboard_isKeyPressed(sfKeyEscape)) ? 1 : game.game;
         while (sfMouse_isButtonPressed(sfMouseLeft) &&
-        sfMouse_getPositionRenderWindow(game.w).x > game.m.position.x &&
-        sfMouse_getPositionRenderWindow(game.w).x < game.m.position.x + 618 &&
-        sfMouse_getPositionRenderWindow(game.w).y > game.m.position.y &&
-        sfMouse_getPositionRenderWindow(game.w).y < game.m.position.y + 155) {
+        sfMouse_getPositionRenderWindow(game.k).x > game.m.position.x &&
+        sfMouse_getPositionRenderWindow(game.k).x < game.m.position.x + 618 &&
+        sfMouse_getPositionRenderWindow(game.k).y > game.m.position.y &&
+        sfMouse_getPositionRenderWindow(game.k).y < game.m.position.y + 155) {
             game.game = 1;
             game = remake_game(game);
         }
     }
-    sfRenderWindow_setMouseCursorVisible(game.w, 0);
+    sfRenderWindow_setMouseCursorVisible(game.k, 0);
     game = my_pause(game);
     return (game);
 }

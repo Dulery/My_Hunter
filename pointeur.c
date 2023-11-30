@@ -13,8 +13,8 @@ void viseur(the_game game)
     int y = 60;
     sfVector2f positionSpr;
 
-    positionSpr.x = sfMouse_getPositionRenderWindow(game.w).x - x;
-    positionSpr.y = sfMouse_getPositionRenderWindow(game.w).y - y;
+    positionSpr.x = sfMouse_getPositionRenderWindow(game.k).x - x;
+    positionSpr.y = sfMouse_getPositionRenderWindow(game.k).y - y;
     sfSprite_setPosition(game.cursorSpr, positionSpr);
-    sfRenderWindow_drawSprite(game.w, game.cursorSpr, NULL);
+    sfRenderWindow_drawSprite(game.k, game.cursorSpr, NULL);
 }

@@ -10,13 +10,13 @@
 the_game player_heart(the_game game)
 {
     for (int i = 0; i < game.i; i++) {
-        if (game.b[i].position.x > 1400) {
-            game.h.heart--;
-            game.b[i] = des_zombie(game.b[i]);
-            game.h.rect.width -= 15;
+        if (game.z[i].position.x > 1400) {
+            game.j.heart--;
+            game.z[i] = des_zombie(game.z[i]);
+            game.j.rect.width -= 15;
         }
     }
-    if (game.h.heart <= 0) {
+    if (game.j.heart <= 0) {
         game.game = 0;
     }
     put_heart(game);
@@ -25,26 +25,26 @@ the_game player_heart(the_game game)
 
 void put_heart(the_game game)
 {
-    sfSprite_setTexture(game.h.sprite, game.h.text, sfTrue);
-    sfSprite_setTextureRect(game.h.sprite, game.h.rect);
-    sfSprite_setPosition(game.h.sprite, game.h.position);
-    sfRenderWindow_drawSprite(game.w, game.h.sprite, NULL);
+    sfSprite_setTexture(game.j.sprite, game.j.text, sfTrue);
+    sfSprite_setTextureRect(game.j.sprite, game.j.rect);
+    sfSprite_setPosition(game.j.sprite, game.j.position);
+    sfRenderWindow_drawSprite(game.k, game.j.sprite, NULL);
 }
 
 char *my_get_score(int nb)
 {
     char *str = malloc(sizeof(char) * 13);
-    int tmp;
+    int temps;
     int i = -1;
 
     for (int compt = nb; compt >= 1; i++)
         compt = compt / 10;
-    tmp = i;
+    temps = i;
     for (; nb >= 1; i--) {
         str[i] = nb % 10 + 48;
         nb = nb / 10;
     }
-    str[tmp + 1] = '\0';
+    str[temps + 1] = '\0';
     if (str[0] == '\0') {
         str[0] = '0';
         str[1] = '\0';
@@ -54,10 +54,10 @@ char *my_get_score(int nb)
 
 void put_text(the_game game)
 {
-    char *str = my_get_score(game.h.compt);
+    char *str = my_get_score(game.j.compt);
 
-    game.h.position.y += 20;
-    sfText_setString(game.h.txt, str);
-    sfText_setPosition(game.h.txt, game.h.position);
-    sfRenderWindow_drawText(game.w, game.h.txt, NULL);
+    game.j.position.y += 20;
+    sfText_setString(game.j.txt, str);
+    sfText_setPosition(game.j.txt, game.j.position);
+    sfRenderWindow_drawText(game.k, game.j.txt, NULL);
 }

@@ -7,25 +7,6 @@
 
 #include "my.h"
 
-void my_destroy(the_game game)
-{
-    sfMusic_destroy(game.h.music);
-    sfMusic_stop(game.h.gun1);
-    for (int i = 0; i < game.i; i++) {
-        sfClock_destroy(game.b[i].clock);
-        sfSprite_destroy(game.b[i].sprite);
-        sfTexture_destroy(game.b[i].texture);
-    }
-    sfSprite_destroy(game.h.sprite);
-    sfTexture_destroy(game.h.text);
-    sfText_destroy(game.h.txt);
-    sfTexture_destroy(game.text);
-    sfSprite_destroy(game.sprite);
-    sfSprite_destroy(game.cursorSpr);
-    sfMusic_destroy(game.h.gun1);
-    sfRenderWindow_destroy(game.w);
-}
-
 int put_h(void)
 {
     write(1, "MyHunterZ: l'objectif est de tuer des zombies\n", 47);
@@ -46,7 +27,7 @@ int main(int ac, char *av[])
     game = make_game(game);
     bestmusicofalltime(game);
     menu(game);
-    while (sfRenderWindow_isOpen(game.w)) {
+    while (sfRenderWindow_isOpen(game.k)) {
         make_window(game);
         game = my_gun(game);
         game = my_zombie(game);
@@ -60,8 +41,26 @@ int main(int ac, char *av[])
 
 int bestmusicofalltime(the_game game)
 {
-    game.h.music = sfMusic_createFromFile("resource/song/playsong.ogg");
-    sfMusic_setLoop(game.h.music, sfTrue);
-    sfMusic_play(game.h.music);
+    game.j.music = sfMusic_createFromFile("resource/song/playsong.ogg");
+    sfMusic_setLoop(game.j.music, sfTrue);
+    sfMusic_play(game.j.music);
     return 0;
+}
+
+void my_destroy(the_game game)
+{
+    sfMusic_stop(game.j.gun1);
+    for (int i = 0; i < game.i; i++) {
+        sfClock_destroy(game.z[i].clock);
+        sfSprite_destroy(game.z[i].sprite);
+        sfTexture_destroy(game.z[i].texture);
+    }
+    sfSprite_destroy(game.j.sprite);
+    sfTexture_destroy(game.j.text);
+    sfText_destroy(game.j.txt);
+    sfTexture_destroy(game.text);
+    sfSprite_destroy(game.sprite);
+    sfSprite_destroy(game.cursorSpr);
+    sfMusic_destroy(game.j.gun1);
+    sfRenderWindow_destroy(game.k);
 }
