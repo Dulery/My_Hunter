@@ -6,12 +6,13 @@
 */
 
 #include "../my.h"
-#include <stdio.h>
 
 int print_h(void)
 {
-    printf("bonjour");
-    return (0);
+    char const *message = "Bonjour, le monde !";
+
+    my_putstr(message);
+    return 0;
 }
 
 int main(int ac, char *av[])
@@ -21,9 +22,8 @@ int main(int ac, char *av[])
     if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h' && av[1][2] == '\0') {
         return (print_h());
     }
-    if (ac != 1) {
-        return (84);
-    }
+    if (ac != 1)
+        return 84;
     the_game = make_game(the_game);
     bestmusicofalltime(the_game);
     menu(the_game);
@@ -50,6 +50,7 @@ int bestmusicofalltime(the_game the_game)
 void my_destroy(the_game the_game)
 {
     sfMusic_stop(the_game.j.fusilsound);
+    sfMusic_destroy(the_game.j.fusilsound);
     for (int i = 0; i < the_game.i; i++) {
         sfClock_destroy(the_game.z[i].clock);
         sfSprite_destroy(the_game.z[i].sprite);
@@ -61,7 +62,7 @@ void my_destroy(the_game the_game)
     sfTexture_destroy(the_game.scoretext);
     sfSprite_destroy(the_game.sprite);
     sfSprite_destroy(the_game.curseur);
-    sfMusic_destroy(the_game.j.fusilsound);
+    
     sfRenderWindow_destroy(the_game.k);
 }
 

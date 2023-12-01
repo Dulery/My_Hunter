@@ -7,6 +7,7 @@
 
 #ifndef MY_H_
     #define MY_H_
+    #include <stddef.h>
     #include <unistd.h>
     #include <stdlib.h>
     #include <sys/types.h>
@@ -17,6 +18,8 @@
     #include <time.h>
     #include "struct.h"
 
+void the_putchar(char c);
+int my_putstr(char const *str);
 void zombie_place(the_game the_game);
 char *score(int nb);
 the_game restart(the_game the_game);

@@ -24,7 +24,7 @@ stc_zombie zombie(stc_zombie tzombie)
     tzombie.texture = sfTexture_createFromFile
     ("content/image/tzombie.png", NULL);
     sfSprite_setTexture(tzombie.sprite, tzombie.texture, sfTrue);
-    return (tzombie);
+    return tzombie;
 }
 
 sfRenderWindow *create_window(void)
@@ -39,7 +39,7 @@ sfRenderWindow *create_window(void)
     window = sfRenderWindow_create(video_mode, "Hunter", sfClose |
     sfResize, NULL);
     sfRenderWindow_setFramerateLimit(window, 50);
-    return (window);
+    return window;
 }
 
 stc_vie create_vie(stc_vie heart)
@@ -60,7 +60,21 @@ stc_vie create_vie(stc_vie heart)
     sfText_setColor(heart.textbase, sfWhite);
     sfText_setCharacterSize(heart.textbase, 30);
     heart.fusilsound = sfMusic_createFromFile("content/sound/fusilsound.ogg");
-    return (heart);
+    return heart;
+}
+
+void make_window(the_game the_game)
+{
+    sfRenderWindow_display(the_game.k);
+    sfRenderWindow_drawSprite(the_game.k, the_game.sprite, NULL);
+    while (sfRenderWindow_pollEvent(the_game.k, &the_game.event)) {
+        if (the_game.event.type == sfEvtClosed) {
+            sfRenderWindow_close(the_game.k);
+        }
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
+        sfRenderWindow_close(the_game.k);
+    }
 }
 
 the_game make_game(the_game the_game)
@@ -76,25 +90,12 @@ the_game make_game(the_game the_game)
     (the_game.z[i]);
     the_game.k = create_window();
     the_game.j = create_vie(the_game.j);
-    the_game.scoretext = sfTexture_createFromFile("content/image/mn.png", NULL);
+    the_game.scoretext =
+    sfTexture_createFromFile("content/image/mn.png", NULL);
     the_game.sprite = sfSprite_create();
     sfSprite_setTexture(the_game.sprite, the_game.scoretext, sfTrue);
     the_game.curseur = sfSprite_create();
     sfSprite_setTexture(the_game.curseur, sfTexture_createFromFile(\
         "content/image/cursor.png", NULL), sfTrue);
-    return (the_game);
-}
-
-void make_window(the_game the_game)
-{
-    sfRenderWindow_display(the_game.k);
-    sfRenderWindow_drawSprite(the_game.k, the_game.sprite, NULL);
-    while (sfRenderWindow_pollEvent(the_game.k, &the_game.event)) {
-        if (the_game.event.type == sfEvtClosed) {
-            sfRenderWindow_close(the_game.k);
-        }
-    }
-    if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
-        sfRenderWindow_close(the_game.k);
-    }
+    return the_game;
 }

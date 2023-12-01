@@ -21,7 +21,7 @@ char *score(int nombre)
         nombre = nombre / 10;
     }
     str[temps + 1] = '\0';
-    return (str);
+    return str;
 }
 
 the_game player_heart(the_game the_game)

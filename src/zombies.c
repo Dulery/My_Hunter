@@ -19,10 +19,10 @@ int hit_zombie(int hitbox, int compt)
 {
     hitbox = (compt == 5) ? 110 : hitbox;
     hitbox = (compt == 10) ? 220 : hitbox;
-    hitbox = (compt == 15) ? 440 : hitbox;
-    hitbox = (compt == 20) ? 330 : hitbox;
-    hitbox = (compt == 25) ? 440 : hitbox;
-    hitbox = (compt == 30) ? 220 : hitbox;
+    //hitbox = (compt == 15) ? 440 : hitbox;
+    //hitbox = (compt == 20) ? 330 : hitbox;
+    //hitbox = (compt == 25) ? 440 : hitbox;
+    //hitbox = (compt == 30) ? 220 : hitbox;
     return (hitbox);
 }
 
@@ -30,7 +30,8 @@ void zombie_place(the_game the_game)
 {
     for (int i = 0; i < the_game.i; i++) {
         if (the_game.z[i].vies) {
-            sfSprite_setTexture(the_game.z[i].sprite, the_game.z[i].texture, sfTrue);
+            sfSprite_setTexture(the_game.z[i].sprite,
+            the_game.z[i].texture, sfTrue);
             sfSprite_setTextureRect(the_game.z[i].sprite, the_game.z[i].hit);
             sfSprite_setPosition(the_game.z[i].sprite, the_game.z[i].position);
             sfRenderWindow_drawSprite(the_game.k, the_game.z[i].sprite, NULL);

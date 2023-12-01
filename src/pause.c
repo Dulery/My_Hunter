@@ -46,7 +46,7 @@ the_game my_menu_event(the_game the_game)
     sfMouse_getPositionRenderWindow(the_game.k).y > 350 &&
     sfMouse_getPositionRenderWindow(the_game.k).y < 350 + 100)
         sfRenderWindow_close(the_game.k);
-    return (the_game);
+    return the_game;
 }
 
 void window_close(the_game the_game)
