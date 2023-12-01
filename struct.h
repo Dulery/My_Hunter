@@ -13,8 +13,6 @@
 typedef struct the_stcfusil {
     sfClock *clock;
     sfTime time;
-    float seconds;
-    int compt;
     sfTexture *text_exp;
     sfSprite *spr_exp;
     sfVector2f pos_exp;
@@ -22,19 +20,21 @@ typedef struct the_stcfusil {
     sfSprite *sprite;
     sfVector2f position;
     sfIntRect rect;
+    float seconds;
+    int compt;
 } stc_fusil;
 
 typedef struct the_stcz {
     sfClock *clock;
     sfTime time;
-    float seconds;
-    int compteur;
     int vies;
     int mort;
+    float seconds;
+    int compteur;
     sfTexture *texture;
     sfSprite *sprite;
     sfVector2f position;
-    sfIntRect rect;
+    sfIntRect hit;
 } stc_zombie;
 
 typedef struct the_coeur {
@@ -45,7 +45,7 @@ typedef struct the_coeur {
     sfTexture *text;
     sfSprite *sprite;
     sfVector2f position;
-    sfMusic* gun1;
+    sfMusic* fusilsound;
     sfMusic* music;
 } stc_vie;
 
@@ -60,7 +60,6 @@ typedef struct the_menu {
     sfVector2f position;
     sfVector2f pos_text;
     sfVector2f pos_logo;
-
 } stc_menu;
 
 typedef struct the_game {

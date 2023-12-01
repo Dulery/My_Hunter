@@ -5,7 +5,7 @@
 ** oui
 */
 
-#include "my.h"
+#include "../my.h"
 
 int put_h(void)
 {
@@ -49,18 +49,18 @@ int bestmusicofalltime(the_game game)
 
 void my_destroy(the_game game)
 {
-    sfMusic_stop(game.j.gun1);
+    sfMusic_stop(game.j.fusilsound);
     for (int i = 0; i < game.i; i++) {
         sfClock_destroy(game.z[i].clock);
         sfSprite_destroy(game.z[i].sprite);
         sfTexture_destroy(game.z[i].texture);
     }
+    sfText_destroy(game.j.txt);
     sfSprite_destroy(game.j.sprite);
     sfTexture_destroy(game.j.text);
-    sfText_destroy(game.j.txt);
     sfTexture_destroy(game.text);
     sfSprite_destroy(game.sprite);
     sfSprite_destroy(game.cursorSpr);
-    sfMusic_destroy(game.j.gun1);
+    sfMusic_destroy(game.j.fusilsound);
     sfRenderWindow_destroy(game.k);
 }

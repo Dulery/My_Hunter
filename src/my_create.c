@@ -5,19 +5,19 @@
 ** oui
 */
 
-#include "my.h"
+#include "../my.h"
 
 stc_zombie zombie(stc_zombie tzombie)
 {
-    tzombie.mort = 3;
     tzombie.clock = sfClock_create();
+    tzombie.mort = 3;
     tzombie.seconds = 0;
     tzombie.compteur = 0;
     tzombie.vies = 1;
-    (tzombie.rect).height = 110;
-    (tzombie.rect).width = 100;
-    (tzombie.rect).top = 0;
-    (tzombie.rect).left = 110;
+    (tzombie.hit).height = 110;
+    (tzombie.hit).width = 100;
+    (tzombie.hit).top = 0;
+    (tzombie.hit).left = 110;
     (tzombie.position).x = -110 - (rand() % 500 + 20);
     (tzombie.position).y = rand() % 325 + 375;
     tzombie.sprite = sfSprite_create();
@@ -39,8 +39,6 @@ sfRenderWindow *create_window(void)
     window = sfRenderWindow_create(video_mode, "Hunter", sfClose |
     sfResize, NULL);
     sfRenderWindow_setFramerateLimit(window, 50);
-    sfRenderWindow_setIcon(window, 100, 100,
-    sfImage_getPixelsPtr(sfImage_createFromFile("resource/picture/icon.png")));
     return (window);
 }
 
@@ -48,30 +46,30 @@ stc_vie create_vie(stc_vie heart)
 {
     heart.compt = 0;
     heart.heart = 3;
-    (heart.rect).height = 18;
-    (heart.rect).width = 46;
-    (heart.rect).top = 50;
+    (heart.rect).height = 100;
+    (heart.rect).width = 62;
+    (heart.rect).top = 65;
     (heart.rect).left = 0;
-    (heart.position).x = 1300;
-    (heart.position).y = 20;
+    (heart.position).x = 10;
+    (heart.position).y = 10;
     heart.sprite = sfSprite_create();
     heart.text = sfTexture_createFromFile("resource/picture/heart.png", NULL);
     heart.txt = sfText_create();
     sfText_setFont(heart.txt,
-        sfFont_createFromFile("resource/picture/sc.ttf"));
+    sfFont_createFromFile("resource/picture/pl.ttf"));
     sfText_setColor(heart.txt, sfWhite);
     sfText_setCharacterSize(heart.txt, 30);
-    heart.gun1 = sfMusic_createFromFile("resource/song/gun1.ogg");
+    heart.fusilsound = sfMusic_createFromFile("resource/song/fusilsound.ogg");
     return (heart);
 }
 
 the_game make_game(the_game game)
 {
     game.loop = 0;
-    game.m = create_menu(game.m);
     game.game = 1;
     game.i = 1;
     game.tzombie = 100;
+    game.m = create_menu(game.m);
     game.z = malloc(sizeof(stc_zombie) * game.tzombie);
     for (int i = 0; i < game.tzombie; i++)
         game.z[i] = zombie

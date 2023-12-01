@@ -5,13 +5,13 @@
 ** oui
 */
 
-#include "my.h"
+#include "../my.h"
 
 void viseur(the_game game)
 {
+    sfVector2f positionSpr;
     int x = 60;
     int y = 60;
-    sfVector2f positionSpr;
 
     positionSpr.x = sfMouse_getPositionRenderWindow(game.k).x - x;
     positionSpr.y = sfMouse_getPositionRenderWindow(game.k).y - y;

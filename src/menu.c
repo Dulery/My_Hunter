@@ -5,7 +5,7 @@
 ** oui
 */
 
-#include "my.h"
+#include "../my.h"
 
 stc_menu create_menu(stc_menu menu)
 {
@@ -21,7 +21,7 @@ stc_menu create_menu(stc_menu menu)
     menu.text2 = sfTexture_createFromFile("resource/picture/replay.png", NULL);
     menu.text3 = sfTexture_createFromFile("resource/picture/logo.png", NULL);
     menu.txt = sfText_create();
-    sfText_setFont(menu.txt, sfFont_createFromFile("resource/picture/sc.ttf"));
+    sfText_setFont(menu.txt, sfFont_createFromFile("resource/picture/pl.ttf"));
     sfText_setCharacterSize(menu.txt, 100);
     sfSprite_setScale(menu.spr_logo, menuspr_logo_scale);
     sfSprite_setTexture(menu.spr_b1, menu.text, sfTrue);
@@ -56,10 +56,10 @@ void menu(the_game game)
 
 the_game remake_game(the_game game)
 {
+    game.loop = 0;
     game.m = create_menu(game.m);
     game.game = 1;
     game.i = 1;
-    game.loop = 0;
     game.tzombie = 100;
     game.z = malloc(sizeof(stc_zombie) * game.tzombie);
     for (int i = 0; i < game.tzombie; i++)

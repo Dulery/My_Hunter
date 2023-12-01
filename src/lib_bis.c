@@ -5,19 +5,11 @@
 ** oui
 */
 
-#include "my.h"
+#include "../my.h"
 
 void my_putchar(char c, int fd)
 {
     write(fd, &c, 1);
-}
-
-int my_put_nbr(int nb, int fd)
-{
-    if (nb >= 10)
-        my_put_nbr(nb / 10, fd);
-    my_putchar((nb % 10) + 48, fd);
-    return (0);
 }
 
 int my_getnbr(char const *str)
@@ -35,4 +27,12 @@ int my_getnbr(char const *str)
         j--;
     }
     return (rtn);
+}
+
+int my_put_nbr(int nb, int fd)
+{
+    if (nb >= 10)
+        my_put_nbr(nb / 10, fd);
+    my_putchar((nb % 10) + 48, fd);
+    return (0);
 }

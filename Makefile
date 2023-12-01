@@ -7,16 +7,16 @@
 
 CC	=	gcc
 
-SRC	=	main.c \
-		pointeur.c \
-		my_make_window.c \
-		zombies.c \
-		fusil.c \
-		my_create.c \
-		coeur.c \
-		lib_bis.c \
-		menu.c	\
-		pause.c
+SRC	=	./src/main.c \
+		./src/pointeur.c \
+		./src/my_make_window.c \
+		./src/zombies.c \
+		./src/fusil.c \
+		./src/my_create.c \
+		./src/coeur.c \
+		./src/lib_bis.c \
+		./src/menu.c	\
+		./src/pause.c
 
 OBJ	=	$(SRC:.c=.o)
 

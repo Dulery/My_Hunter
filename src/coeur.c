@@ -5,31 +5,7 @@
 ** oui
 */
 
-#include "my.h"
-
-the_game player_heart(the_game game)
-{
-    for (int i = 0; i < game.i; i++) {
-        if (game.z[i].position.x > 1400) {
-            game.j.heart--;
-            game.z[i] = des_zombie(game.z[i]);
-            game.j.rect.width -= 15;
-        }
-    }
-    if (game.j.heart <= 0) {
-        game.game = 0;
-    }
-    put_heart(game);
-    return (game);
-}
-
-void put_heart(the_game game)
-{
-    sfSprite_setTexture(game.j.sprite, game.j.text, sfTrue);
-    sfSprite_setTextureRect(game.j.sprite, game.j.rect);
-    sfSprite_setPosition(game.j.sprite, game.j.position);
-    sfRenderWindow_drawSprite(game.k, game.j.sprite, NULL);
-}
+#include "../my.h"
 
 char *my_get_score(int nb)
 {
@@ -51,6 +27,32 @@ char *my_get_score(int nb)
     }
     return (str);
 }
+
+the_game player_heart(the_game game)
+{
+    for (int i = 0; i < game.i; i++) {
+        if (game.z[i].position.x > 1400) {
+            game.j.heart--;
+            game.z[i] = des_zombie(game.z[i]);
+            game.j.rect.width -= 20;
+        }
+    }
+    if (game.j.heart <= 0) {
+        game.game = 0;
+    }
+    put_heart(game);
+    return (game);
+}
+
+void put_heart(the_game game)
+{
+    sfSprite_setTexture(game.j.sprite, game.j.text, sfTrue);
+    sfSprite_setTextureRect(game.j.sprite, game.j.rect);
+    sfSprite_setPosition(game.j.sprite, game.j.position);
+    sfRenderWindow_drawSprite(game.k, game.j.sprite, NULL);
+}
+
+
 
 void put_text(the_game game)
 {
