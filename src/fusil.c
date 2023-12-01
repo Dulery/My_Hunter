@@ -38,22 +38,22 @@ int my_shoot(stc_zombie tzombie, sfRenderWindow *window)
     }
 }
 
-void my_gun_song(the_game game)
+void my_gun_song(the_game the_game)
 {
-    sfMusic_play(game.j.fusilsound);
+    sfMusic_play(the_game.j.fusilsound);
 }
 
-the_game fusil_fon(the_game game)
+the_game fusil_fon(the_game the_game)
 {
     if (sfMouse_isButtonPressed(sfMouseLeft)) {
-        my_gun_song(game);
-        for (int i = 0; i < game.i; i++) {
-            game.j.compt += my_shoot(game.z[i], game.k);
-            game.z[i].mort = (my_shoot(game.z[i],
-            game.k)) ? 2 : game.z[i].mort;
+        my_gun_song(the_game);
+        for (int i = 0; i < the_game.i; i++) {
+            the_game.j.compt += my_shoot(the_game.z[i], the_game.k);
+            the_game.z[i].mort = (my_shoot(the_game.z[i],
+            the_game.k)) ? 2 : the_game.z[i].mort;
         }
     }
-    game = player_heart(game);
-    zombie_place(game);
-    return (spawn_zombie(game));
+    the_game = player_heart(the_game);
+    zombie_place(the_game);
+    return (spawn_zombie(the_game));
 }

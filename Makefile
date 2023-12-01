@@ -6,15 +6,13 @@
 ##
 
 SRC	=	./src/main.c \
-		./src/pointeur.c \
-		./src/my_make_window.c \
 		./src/zombies.c \
 		./src/fusil.c \
 		./src/my_create.c \
 		./src/coeur.c \
 		./src/lib_bis.c \
-		./src/menu.c	\
-		./src/pause.c
+		./src/menu.c \
+		./src/pause.c \
 
 OBJ	=	$(SRC:.c=.o)
 

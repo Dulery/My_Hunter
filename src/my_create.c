@@ -63,24 +63,38 @@ stc_vie create_vie(stc_vie heart)
     return (heart);
 }
 
-the_game make_game(the_game game)
+the_game make_game(the_game the_game)
 {
-    game.boucle = 0;
-    game.game = 1;
-    game.i = 1;
-    game.tzombie = 100;
-    game.m = create_menu(game.m);
-    game.z = malloc(sizeof(stc_zombie) * game.tzombie);
-    for (int i = 0; i < game.tzombie; i++)
-        game.z[i] = zombie
-    (game.z[i]);
-    game.k = create_window();
-    game.j = create_vie(game.j);
-    game.scoretext = sfTexture_createFromFile("content/image/mn.png", NULL);
-    game.sprite = sfSprite_create();
-    sfSprite_setTexture(game.sprite, game.scoretext, sfTrue);
-    game.curseur = sfSprite_create();
-    sfSprite_setTexture(game.curseur, sfTexture_createFromFile(\
+    the_game.boucle = 0;
+    the_game.jeu = 1;
+    the_game.i = 1;
+    the_game.tzombie = 100;
+    the_game.m = create_menu(the_game.m);
+    the_game.z = malloc(sizeof(stc_zombie) * the_game.tzombie);
+    for (int i = 0; i < the_game.tzombie; i++)
+        the_game.z[i] = zombie
+    (the_game.z[i]);
+    the_game.k = create_window();
+    the_game.j = create_vie(the_game.j);
+    the_game.scoretext = sfTexture_createFromFile("content/image/mn.png", NULL);
+    the_game.sprite = sfSprite_create();
+    sfSprite_setTexture(the_game.sprite, the_game.scoretext, sfTrue);
+    the_game.curseur = sfSprite_create();
+    sfSprite_setTexture(the_game.curseur, sfTexture_createFromFile(\
         "content/image/cursor.png", NULL), sfTrue);
-    return (game);
+    return (the_game);
+}
+
+void make_window(the_game the_game)
+{
+    sfRenderWindow_display(the_game.k);
+    sfRenderWindow_drawSprite(the_game.k, the_game.sprite, NULL);
+    while (sfRenderWindow_pollEvent(the_game.k, &the_game.event)) {
+        if (the_game.event.type == sfEvtClosed) {
+            sfRenderWindow_close(the_game.k);
+        }
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
+        sfRenderWindow_close(the_game.k);
+    }
 }

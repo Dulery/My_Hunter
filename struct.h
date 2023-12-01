@@ -60,7 +60,7 @@ typedef struct the_game {
     int boucle;
     int i;
     int tzombie;
-    int game;
+    int jeu;
 } the_game;
 
 #endif

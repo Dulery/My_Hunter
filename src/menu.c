@@ -30,79 +30,79 @@ stc_menu create_menu(stc_menu menu)
     return (menu);
 }
 
-void menu(the_game game)
+void menu(the_game the_game)
 {
     int loop = 1;
 
-    while (loop && sfRenderWindow_isOpen(game.k)) {
-        make_window(game);
-        sfSprite_setTexture(game.m.spr_b1, game.m.text, sfTrue);
-        sfSprite_setPosition(game.m.spr_b1, game.m.position);
-        sfRenderWindow_drawSprite(game.k, game.m.spr_b1, NULL);
-        sfRenderWindow_drawSprite(game.k, game.m.spr_logo, NULL);
-        sfText_setString(game.m.txt, game.m.score);
-        sfText_setPosition(game.m.txt, game.m.pos_text);
-        sfRenderWindow_drawText(game.k, game.m.txt, NULL);
+    while (loop && sfRenderWindow_isOpen(the_game.k)) {
+        make_window(the_game);
+        sfSprite_setTexture(the_game.m.spr_b1, the_game.m.text, sfTrue);
+        sfSprite_setPosition(the_game.m.spr_b1, the_game.m.position);
+        sfRenderWindow_drawSprite(the_game.k, the_game.m.spr_b1, NULL);
+        sfRenderWindow_drawSprite(the_game.k, the_game.m.spr_logo, NULL);
+        sfText_setString(the_game.m.txt, the_game.m.score);
+        sfText_setPosition(the_game.m.txt, the_game.m.pos_text);
+        sfRenderWindow_drawText(the_game.k, the_game.m.txt, NULL);
         loop = (sfKeyboard_isKeyPressed(sfKeyEscape)) ? 0 : loop;
         while (sfMouse_isButtonPressed(sfMouseLeft) &&
-        sfMouse_getPositionRenderWindow(game.k).x > 370 &&
-        sfMouse_getPositionRenderWindow(game.k).x < 988 &&
-        sfMouse_getPositionRenderWindow(game.k).y > 400 &&
-        sfMouse_getPositionRenderWindow(game.k).y < 555)
+        sfMouse_getPositionRenderWindow(the_game.k).x > 370 &&
+        sfMouse_getPositionRenderWindow(the_game.k).x < 988 &&
+        sfMouse_getPositionRenderWindow(the_game.k).y > 400 &&
+        sfMouse_getPositionRenderWindow(the_game.k).y < 555)
             loop = 0;
     }
-    sfRenderWindow_setMouseCursorVisible(game.k, 0);
+    sfRenderWindow_setMouseCursorVisible(the_game.k, 0);
 }
 
-void make_res(the_game game)
+void make_res(the_game the_game)
 {
-    make_window(game);
-    sfSprite_setPosition(game.m.spr_b1, game.m.position);
-    sfRenderWindow_drawSprite(game.k, game.m.spr_b1, NULL);
-    sfText_setPosition(game.m.txt, game.m.pos_text);
-    sfRenderWindow_drawText(game.k, game.m.txt, NULL);
+    make_window(the_game);
+    sfSprite_setPosition(the_game.m.spr_b1, the_game.m.position);
+    sfRenderWindow_drawSprite(the_game.k, the_game.m.spr_b1, NULL);
+    sfText_setPosition(the_game.m.txt, the_game.m.pos_text);
+    sfRenderWindow_drawText(the_game.k, the_game.m.txt, NULL);
 }
 
-the_game restart(the_game game)
+the_game restart(the_game the_game)
 {
-    if (!game.game) {
-        sfText_setString(game.m.txt, my_get_score(game.j.compt));
-        sfRenderWindow_setMouseCursorVisible(game.k, 1);
-        sfSprite_setTexture(game.m.spr_b1, game.m.text2, sfTrue);
+    if (!the_game.jeu) {
+        sfText_setString(the_game.m.txt, score(the_game.j.compt));
+        sfRenderWindow_setMouseCursorVisible(the_game.k, 1);
+        sfSprite_setTexture(the_game.m.spr_b1, the_game.m.text2, sfTrue);
     }
-    while (!game.game && sfRenderWindow_isOpen(game.k)) {
-        make_res(game);
-        game.game = (sfKeyboard_isKeyPressed(sfKeyEscape)) ? 1 : game.game;
+    while (!the_game.jeu && sfRenderWindow_isOpen(the_game.k)) {
+        make_res(the_game);
+        the_game.jeu = (sfKeyboard_isKeyPressed(sfKeyEscape)) ? 1 : the_game.jeu;
         while (sfMouse_isButtonPressed(sfMouseLeft) &&
-        sfMouse_getPositionRenderWindow(game.k).x > game.m.position.x &&
-        sfMouse_getPositionRenderWindow(game.k).x < game.m.position.x + 618 &&
-        sfMouse_getPositionRenderWindow(game.k).y > game.m.position.y &&
-        sfMouse_getPositionRenderWindow(game.k).y < game.m.position.y + 155) {
-            game.game = 1;
-            game = reload_game(game);
+        sfMouse_getPositionRenderWindow(the_game.k).x > the_game.m.position.x &&
+        sfMouse_getPositionRenderWindow(the_game.k).x < the_game.m.position.x + 618 &&
+        sfMouse_getPositionRenderWindow(the_game.k).y > the_game.m.position.y &&
+        sfMouse_getPositionRenderWindow(the_game.k).y < the_game.m.position.y + 155) {
+            the_game.jeu = 1;
+            the_game = reload_game(the_game);
         }
     }
-    sfRenderWindow_setMouseCursorVisible(game.k, 0);
-    game = my_pause(game);
-    return (game);
+    sfRenderWindow_setMouseCursorVisible(the_game.k, 0);
+    the_game = my_pause(the_game);
+    return (the_game);
 }
 
-the_game reload_game(the_game game)
+the_game reload_game(the_game the_game)
 {
-    game.boucle = 0;
-    game.m = create_menu(game.m);
-    game.game = 1;
-    game.i = 1;
-    game.tzombie = 100;
-    game.z = malloc(sizeof(stc_zombie) * game.tzombie);
-    for (int i = 0; i < game.tzombie; i++)
-        game.z[i] = zombie(game.z[i]);
-    game.j = create_vie(game.j);
-    game.scoretext = sfTexture_createFromFile("content/image/mn.png", NULL);
-    game.sprite = sfSprite_create();
-    sfSprite_setTexture(game.sprite, game.scoretext, sfTrue);
-    game.curseur = sfSprite_create();
-    sfSprite_setTexture(game.curseur, sfTexture_createFromFile(\
+    the_game.boucle = 0;
+    the_game.m = create_menu(the_game.m);
+    the_game.jeu = 1;
+    the_game.i = 1;
+    the_game.tzombie = 100;
+    the_game.z = malloc(sizeof(stc_zombie) * the_game.tzombie);
+    for (int i = 0; i < the_game.tzombie; i++)
+        the_game.z[i] = zombie(the_game.z[i]);
+    the_game.j = create_vie(the_game.j);
+    the_game.scoretext = sfTexture_createFromFile("content/image/mn.png", NULL);
+    the_game.sprite = sfSprite_create();
+    sfSprite_setTexture(the_game.sprite, the_game.scoretext, sfTrue);
+    the_game.curseur = sfSprite_create();
+    sfSprite_setTexture(the_game.curseur, sfTexture_createFromFile(\
         "content/image/cursor.png", NULL), sfTrue);
-    return (game);
+    return (the_game);
 }
