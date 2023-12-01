@@ -19,10 +19,10 @@ int hit_zombie(int hitbox, int compt)
 {
     hitbox = (compt == 5) ? 110 : hitbox;
     hitbox = (compt == 10) ? 220 : hitbox;
-    //hitbox = (compt == 15) ? 440 : hitbox;
-    //hitbox = (compt == 20) ? 330 : hitbox;
-    //hitbox = (compt == 25) ? 440 : hitbox;
-    //hitbox = (compt == 30) ? 220 : hitbox;
+    hitbox = (compt == 15) ? 440 : hitbox;
+    hitbox = (compt == 20) ? 330 : hitbox;
+    hitbox = (compt == 25) ? 440 : hitbox;
+    hitbox = (compt == 30) ? 220 : hitbox;
     return (hitbox);
 }
 

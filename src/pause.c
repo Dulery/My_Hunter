@@ -33,19 +33,19 @@ the_game my_menu_event(the_game the_game)
     sfMouse_getPositionRenderWindow(the_game.k).x < 750 + 100 &&
     sfMouse_getPositionRenderWindow(the_game.k).y > 350 &&
     sfMouse_getPositionRenderWindow(the_game.k).y < 350 + 100)
-        the_game = reload_game(the_game);
+    the_game = reload_game(the_game);
     if (sfMouse_isButtonPressed(sfMouseLeft) &&
     sfMouse_getPositionRenderWindow(the_game.k).x > 550 &&
     sfMouse_getPositionRenderWindow(the_game.k).x < 550 + 100 &&
     sfMouse_getPositionRenderWindow(the_game.k).y > 350 &&
     sfMouse_getPositionRenderWindow(the_game.k).y < 350 + 100)
-        the_game.boucle = 0;
+    the_game.boucle = 0;
     if (sfMouse_isButtonPressed(sfMouseLeft) &&
     sfMouse_getPositionRenderWindow(the_game.k).x > 550 + 100 &&
     sfMouse_getPositionRenderWindow(the_game.k).x < 550 + 200 &&
     sfMouse_getPositionRenderWindow(the_game.k).y > 350 &&
     sfMouse_getPositionRenderWindow(the_game.k).y < 350 + 100)
-        sfRenderWindow_close(the_game.k);
+    sfRenderWindow_close(the_game.k);
     return the_game;
 }
 

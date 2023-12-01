@@ -9,9 +9,9 @@
 
 stc_menu create_menu(stc_menu menu)
 {
+    sfVector2f menuspr_logo_scale = {10, 10};
     menu.position.x = 370;
     menu.position.y = 400;
-    sfVector2f menuspr_logo_scale = {10, 10};
     menu.pos_text = (sfVector2f){1200, 0};
     menu.pos_logo.x = 350;
     menu.pos_logo.y = -20;

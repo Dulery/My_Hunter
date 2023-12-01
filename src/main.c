@@ -62,7 +62,6 @@ void my_destroy(the_game the_game)
     sfTexture_destroy(the_game.scoretext);
     sfSprite_destroy(the_game.sprite);
     sfSprite_destroy(the_game.curseur);
-    
     sfRenderWindow_destroy(the_game.k);
 }
 
