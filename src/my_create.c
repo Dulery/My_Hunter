@@ -45,7 +45,7 @@ sfRenderWindow *create_window(void)
 stc_vie create_vie(stc_vie heart)
 {
     heart.compt = 0;
-    heart.heart = 3;
+    heart.coeurs = 3;
     (heart.rect).height = 100;
     (heart.rect).width = 62;
     (heart.rect).top = 65;
@@ -65,7 +65,7 @@ stc_vie create_vie(stc_vie heart)
 
 the_game make_game(the_game game)
 {
-    game.loop = 0;
+    game.boucle = 0;
     game.game = 1;
     game.i = 1;
     game.tzombie = 100;
@@ -76,11 +76,11 @@ the_game make_game(the_game game)
     (game.z[i]);
     game.k = create_window();
     game.j = create_vie(game.j);
-    game.text = sfTexture_createFromFile("resource/picture/forest.png", NULL);
+    game.scoretext = sfTexture_createFromFile("resource/picture/mn.png", NULL);
     game.sprite = sfSprite_create();
-    sfSprite_setTexture(game.sprite, game.text, sfTrue);
-    game.cursorSpr = sfSprite_create();
-    sfSprite_setTexture(game.cursorSpr, sfTexture_createFromFile(\
+    sfSprite_setTexture(game.sprite, game.scoretext, sfTrue);
+    game.curseur = sfSprite_create();
+    sfSprite_setTexture(game.curseur, sfTexture_createFromFile(\
         "resource/picture/cursor.png", NULL), sfTrue);
     return (game);
 }

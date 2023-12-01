@@ -58,9 +58,9 @@ void my_destroy(the_game game)
     sfText_destroy(game.j.txt);
     sfSprite_destroy(game.j.sprite);
     sfTexture_destroy(game.j.text);
-    sfTexture_destroy(game.text);
+    sfTexture_destroy(game.scoretext);
     sfSprite_destroy(game.sprite);
-    sfSprite_destroy(game.cursorSpr);
+    sfSprite_destroy(game.curseur);
     sfMusic_destroy(game.j.fusilsound);
     sfRenderWindow_destroy(game.k);
 }

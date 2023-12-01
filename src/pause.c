@@ -39,7 +39,7 @@ the_game my_menu_event(the_game game)
     sfMouse_getPositionRenderWindow(game.k).x < 550 + 100 &&
     sfMouse_getPositionRenderWindow(game.k).y > 350 &&
     sfMouse_getPositionRenderWindow(game.k).y < 350 + 100)
-        game.loop = 0;
+        game.boucle = 0;
     if (sfMouse_isButtonPressed(sfMouseLeft) &&
     sfMouse_getPositionRenderWindow(game.k).x > 550 + 100 &&
     sfMouse_getPositionRenderWindow(game.k).x < 550 + 200 &&
@@ -63,12 +63,12 @@ void window_close(the_game game)
 
 the_game pause_part2(the_game game)
 {
-    while (game.loop && sfRenderWindow_isOpen(game.k)) {
+    while (game.boucle && sfRenderWindow_isOpen(game.k)) {
         window_close(game);
         game = my_menu_event(game);
         while (sfKeyboard_isKeyPressed(sfKeySpace)) {
             window_close(game);
-            game.loop = 0;
+            game.boucle = 0;
         }
     }
     return (game);
@@ -76,14 +76,14 @@ the_game pause_part2(the_game game)
 
 the_game my_pause(the_game game)
 {
-    game.loop = 0;
+    game.boucle = 0;
     while (sfKeyboard_isKeyPressed(sfKeySpace) &&
     sfRenderWindow_isOpen(game.k)) {
-        if (!game.loop) {
+        if (!game.boucle) {
             my_draw_pause(game);
             sfRenderWindow_display(game.k);
         }
-        game.loop = 1;
+        game.boucle = 1;
         sfRenderWindow_setMouseCursorVisible(game.k, 1);
         window_close(game);
     }

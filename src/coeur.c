@@ -32,12 +32,12 @@ the_game player_heart(the_game game)
 {
     for (int i = 0; i < game.i; i++) {
         if (game.z[i].position.x > 1400) {
-            game.j.heart--;
+            game.j.coeurs--;
             game.z[i] = des_zombie(game.z[i]);
             game.j.rect.width -= 20;
         }
     }
-    if (game.j.heart <= 0) {
+    if (game.j.coeurs <= 0) {
         game.game = 0;
     }
     put_heart(game);
@@ -51,8 +51,6 @@ void put_heart(the_game game)
     sfSprite_setPosition(game.j.sprite, game.j.position);
     sfRenderWindow_drawSprite(game.k, game.j.sprite, NULL);
 }
-
-
 
 void put_text(the_game game)
 {

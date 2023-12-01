@@ -15,6 +15,6 @@ void viseur(the_game game)
 
     positionSpr.x = sfMouse_getPositionRenderWindow(game.k).x - x;
     positionSpr.y = sfMouse_getPositionRenderWindow(game.k).y - y;
-    sfSprite_setPosition(game.cursorSpr, positionSpr);
-    sfRenderWindow_drawSprite(game.k, game.cursorSpr, NULL);
+    sfSprite_setPosition(game.curseur, positionSpr);
+    sfRenderWindow_drawSprite(game.k, game.curseur, NULL);
 }

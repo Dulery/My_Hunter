@@ -10,20 +10,6 @@
 #ifndef STRUCT_H_
     #define STRUCT_H_
 
-typedef struct the_stcfusil {
-    sfClock *clock;
-    sfTime time;
-    sfTexture *text_exp;
-    sfSprite *spr_exp;
-    sfVector2f pos_exp;
-    sfTexture *texture;
-    sfSprite *sprite;
-    sfVector2f position;
-    sfIntRect rect;
-    float seconds;
-    int compt;
-} stc_fusil;
-
 typedef struct the_stcz {
     sfClock *clock;
     sfTime time;
@@ -38,7 +24,7 @@ typedef struct the_stcz {
 } stc_zombie;
 
 typedef struct the_coeur {
-    int heart;
+    int coeurs;
     int compt;
     sfIntRect rect;
     sfText *txt;
@@ -67,11 +53,11 @@ typedef struct the_game {
     sfRenderWindow *k;
     stc_vie j;
     stc_menu m;
-    sfTexture *text;
+    sfTexture *scoretext;
     sfSprite *sprite;
     sfEvent event;
-    sfSprite *cursorSpr;
-    int loop;
+    sfSprite *curseur;
+    int boucle;
     int i;
     int tzombie;
     int game;

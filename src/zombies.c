@@ -46,7 +46,7 @@ the_game my_zombie(the_game game)
         game.z[i].seconds = (game.z[i].time).microseconds / 10000.0;
         if (game.z[i].seconds > 1.0) {
             sfClock_restart(game.z[i].clock);
-            (game.z[i].position).x += (game.z[i].mort == 3) ? 6 : 0;
+            (game.z[i].position).x += (game.z[i].mort == 3) ? 12 : 0;
             (game.z[i].hit).left = hit_zombie(game.z[i].hit.left,
             game.z[i].compteur);
             game.z[i].compteur++;

@@ -56,7 +56,7 @@ void menu(the_game game)
 
 the_game remake_game(the_game game)
 {
-    game.loop = 0;
+    game.boucle = 0;
     game.m = create_menu(game.m);
     game.game = 1;
     game.i = 1;
@@ -65,11 +65,11 @@ the_game remake_game(the_game game)
     for (int i = 0; i < game.tzombie; i++)
         game.z[i] = zombie(game.z[i]);
     game.j = create_vie(game.j);
-    game.text = sfTexture_createFromFile("resource/picture/forest.png", NULL);
+    game.scoretext = sfTexture_createFromFile("resource/picture/mn.png", NULL);
     game.sprite = sfSprite_create();
-    sfSprite_setTexture(game.sprite, game.text, sfTrue);
-    game.cursorSpr = sfSprite_create();
-    sfSprite_setTexture(game.cursorSpr, sfTexture_createFromFile(\
+    sfSprite_setTexture(game.sprite, game.scoretext, sfTrue);
+    game.curseur = sfSprite_create();
+    sfSprite_setTexture(game.curseur, sfTexture_createFromFile(\
         "resource/picture/cursor.png", NULL), sfTrue);
     return (game);
 }
