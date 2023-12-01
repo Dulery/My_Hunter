@@ -12,11 +12,12 @@ void my_putchar(char c, int fd)
     write(fd, &c, 1);
 }
 
-int my_put_nbr(int nb, int fd)
+int my_put_nbr(int nombre, int nb2)
 {
-    if (nb >= 10)
-        my_put_nbr(nb / 10, fd);
-    my_putchar((nb % 10) + 48, fd);
+    if (nombre >= 10) {
+        my_put_nbr(nombre / 10, nb2);
+    }
+    my_putchar((nombre % 10) + 48, nb2);
     return (0);
 }
 

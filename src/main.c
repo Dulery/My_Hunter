@@ -29,11 +29,11 @@ int main(int ac, char *av[])
     menu(game);
     while (sfRenderWindow_isOpen(game.k)) {
         make_window(game);
-        game = my_gun(game);
+        game = fusil_fon(game);
         game = my_zombie(game);
         put_text(game);
         viseur(game);
-        game = my_replay(game);
+        game = restart(game);
     }
     my_destroy(game);
     return 0;
@@ -41,7 +41,7 @@ int main(int ac, char *av[])
 
 int bestmusicofalltime(the_game game)
 {
-    game.j.music = sfMusic_createFromFile("resource/song/playsong.ogg");
+    game.j.music = sfMusic_createFromFile("content/sound/playsong.ogg");
     sfMusic_setLoop(game.j.music, sfTrue);
     sfMusic_play(game.j.music);
     return 0;
@@ -55,7 +55,7 @@ void my_destroy(the_game game)
         sfSprite_destroy(game.z[i].sprite);
         sfTexture_destroy(game.z[i].texture);
     }
-    sfText_destroy(game.j.txt);
+    sfText_destroy(game.j.textbase);
     sfSprite_destroy(game.j.sprite);
     sfTexture_destroy(game.j.text);
     sfTexture_destroy(game.scoretext);

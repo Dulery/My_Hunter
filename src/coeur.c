@@ -7,18 +7,18 @@
 
 #include "../my.h"
 
-char *my_get_score(int nb)
+char *my_get_score(int nombre)
 {
-    char *str = malloc(sizeof(char) * 13);
     int temps;
     int i = -1;
+    char *str = malloc(sizeof(char) * 13);
 
-    for (int compt = nb; compt >= 1; i++)
-        compt = compt / 10;
+    for (int countagain = nombre; countagain >= 1; i++)
+        countagain = countagain / 10;
     temps = i;
-    for (; nb >= 1; i--) {
-        str[i] = nb % 10 + 48;
-        nb = nb / 10;
+    for (; nombre >= 1; i--) {
+        str[i] = nombre % 10 + 48;
+        nombre = nombre / 10;
     }
     str[temps + 1] = '\0';
     if (str[0] == '\0') {
@@ -57,7 +57,7 @@ void put_text(the_game game)
     char *str = my_get_score(game.j.compt);
 
     game.j.position.y += 20;
-    sfText_setString(game.j.txt, str);
-    sfText_setPosition(game.j.txt, game.j.position);
-    sfRenderWindow_drawText(game.k, game.j.txt, NULL);
+    sfText_setString(game.j.textbase, str);
+    sfText_setPosition(game.j.textbase, game.j.position);
+    sfRenderWindow_drawText(game.k, game.j.textbase, NULL);
 }

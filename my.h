@@ -19,11 +19,11 @@
 
 void zombie_place(the_game game);
 char *my_get_score(int nb);
-the_game my_replay(the_game game);
+the_game restart(the_game game);
 void my_destroy(the_game game);
 char *give_score(void);
 stc_zombie mort_zombie(stc_zombie tzombie);
-the_game remake_game(the_game game);
+the_game reload_game(the_game game);
 the_game my_pause(the_game game);
 void put_gun(the_game game);
 void menu(the_game game);
@@ -46,7 +46,7 @@ void put_text(the_game game);
 void viseur(the_game game);
 the_game my_zombie(the_game game);
 void make_window(the_game game);
-the_game my_gun(the_game game);
+the_game fusil_fon(the_game game);
 int bestmusicofalltime(the_game game);
 
 #endif

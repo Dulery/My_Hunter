@@ -5,8 +5,6 @@
 ## oui
 ##
 
-CC	=	gcc
-
 SRC	=	./src/main.c \
 		./src/pointeur.c \
 		./src/my_make_window.c \
@@ -22,14 +20,8 @@ OBJ	=	$(SRC:.c=.o)
 
 NAME =	my_hunter
 
-FLAGS	=	-W \
-			-Wextra \
-			-Werror \
-			-Wall \
-			-lcsfml-graphics \
-			-lcsfml-audio \
-			-lcsfml-window \
-			-lcsfml-system \
+FLAGS	=	-W -Wextra -Werror -Wall -lcsfml-graphics \
+            -lcsfml-audio -lcsfml-window -lcsfml-system
 
 RM = rm -rf
 

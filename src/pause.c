@@ -15,12 +15,12 @@ void my_draw_pause(the_game game)
     sfSprite *sprite[3];
 
     sprite[1] = sfSprite_create();
-    texture[1] = sfTexture_createFromFile("resource/picture/res.png", NULL);
+    texture[1] = sfTexture_createFromFile("content/image/res.png", NULL);
     sfSprite_setTexture(sprite[1], texture[1], sfTrue);
     sfSprite_setPosition(sprite[1], position);
     sfRenderWindow_drawSprite(game.k, sprite[1], NULL);
     sprite[2] = sfSprite_create();
-    texture[2] = sfTexture_createFromFile("resource/picture/pause.png", NULL);
+    texture[2] = sfTexture_createFromFile("content/image/pause.png", NULL);
     sfSprite_setTexture(sprite[2], texture[2], sfTrue);
     sfSprite_setPosition(sprite[2], position2);
     sfRenderWindow_drawSprite(game.k, sprite[2], NULL);
@@ -33,7 +33,7 @@ the_game my_menu_event(the_game game)
     sfMouse_getPositionRenderWindow(game.k).x < 750 + 100 &&
     sfMouse_getPositionRenderWindow(game.k).y > 350 &&
     sfMouse_getPositionRenderWindow(game.k).y < 350 + 100)
-        game = remake_game(game);
+        game = reload_game(game);
     if (sfMouse_isButtonPressed(sfMouseLeft) &&
     sfMouse_getPositionRenderWindow(game.k).x > 550 &&
     sfMouse_getPositionRenderWindow(game.k).x < 550 + 100 &&

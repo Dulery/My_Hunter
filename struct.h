@@ -27,7 +27,7 @@ typedef struct the_coeur {
     int coeurs;
     int compt;
     sfIntRect rect;
-    sfText *txt;
+    sfText *textbase;
     sfTexture *text;
     sfSprite *sprite;
     sfVector2f position;

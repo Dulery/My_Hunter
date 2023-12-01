@@ -9,10 +9,13 @@
 
 the_game spawn_zombie(the_game game)
 {
-    game.i = (game.j.compt == 4) ? 2 : game.i;
+    game.i = (game.j.compt == 2) ? 2 : game.i;
     game.i = (game.j.compt == 10) ? 3 : game.i;
     game.i = (game.j.compt == 15) ? 4 : game.i;
     game.i = (game.j.compt == 30) ? 5 : game.i;
+    game.i = (game.j.compt == 50) ? 6 : game.i;
+    game.i = (game.j.compt == 85) ? 7 : game.i;
+    game.i = (game.j.compt == 135) ? 15 : game.i;
     return (game);
 }
 
@@ -46,7 +49,7 @@ the_game my_zombie(the_game game)
         game.z[i].seconds = (game.z[i].time).microseconds / 10000.0;
         if (game.z[i].seconds > 1.0) {
             sfClock_restart(game.z[i].clock);
-            (game.z[i].position).x += (game.z[i].mort == 3) ? 12 : 0;
+            (game.z[i].position).x += (game.z[i].mort == 3) ? 8 : 0;
             (game.z[i].hit).left = hit_zombie(game.z[i].hit.left,
             game.z[i].compteur);
             game.z[i].compteur++;

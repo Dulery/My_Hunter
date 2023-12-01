@@ -31,10 +31,11 @@ int my_shoot(stc_zombie tzombie, sfRenderWindow *window)
 
     if ((tzombie.position).x + 100 > x && (tzombie.position).x < x &&
     tzombie.position.y + 100 > y &&
-    tzombie.position.y < y && tzombie.mort == 3)
+    tzombie.position.y < y && tzombie.mort == 3) {
         return (1);
-    else
+    } else {
         return (0);
+    }
 }
 
 void my_gun_song(the_game game)
@@ -42,7 +43,7 @@ void my_gun_song(the_game game)
     sfMusic_play(game.j.fusilsound);
 }
 
-the_game my_gun(the_game game)
+the_game fusil_fon(the_game game)
 {
     if (sfMouse_isButtonPressed(sfMouseLeft)) {
         my_gun_song(game);
