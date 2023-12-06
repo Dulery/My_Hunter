@@ -21,8 +21,6 @@ NAME =	my_hunter
 FLAGS	=	-W -Wextra -Werror -Wall -lcsfml-graphics \
             -lcsfml-audio -lcsfml-window -lcsfml-system
 
-RM = rm -rf
-
 all:
 		$(CC) $(SRC) $(FLAGS) -o $(NAME)
 
